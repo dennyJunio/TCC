@@ -25,7 +25,7 @@ function Register() {
 
   return (
     <div>
-      <h2>Registrar</h2>
+      <h2>Registrar Usuario</h2>
       <div>
         <form onSubmit={handleSubmit}>
           <InputGroup
@@ -36,24 +36,17 @@ function Register() {
             handleChange={handleChange}
           />
           <InputGroup
-            type='email'
-            label='Digite seu email'
-            placeholder='Seu email aqui'
-            name='email'
-            handleChange={handleChange}
-          />
-          <InputGroup
-            type='tel'
-            label='Digite seu telefone aqui'
-            placeholder='Seu telefone aqui'
-            name='phone'
-            handleChange={handleChange}
-          />
-          <InputGroup
             type='password'
             label='Digite sua senha'
             placeholder='Digite sua senha'
             name='password'
+            handleChange={handleChange}
+          />
+          <InputGroup
+            type='password'
+            label='Confirme sua senha'
+            placeholder='Confirme sua senha'
+            name='confirmpassword'
             handleChange={handleChange}
           />
           <InputGroup

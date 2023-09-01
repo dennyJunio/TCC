@@ -10,7 +10,7 @@ const getUserById = require('../helpers/get-user-by-token')
 module.exports = class UserController {
     //criar usuario
     static async register(req, res) {
-        const { name, password, confirmpassword } = req.body
+        const { name, password, confirmpassword, nivel } = req.body
         //validações
         if (!name) {
             res.status(422).json({ message: 'O nome é obrigatório' })
@@ -26,6 +26,10 @@ module.exports = class UserController {
         }
         if (confirmpassword != password) {
             res.status(422).json({ message: 'As senhas tem que ser a mesma' })
+            return
+        }
+        if (!nivel) {
+            res.status(422).json({ message: 'O nível do usuario é obrigatório'})
             return
         }
 
@@ -44,7 +48,8 @@ module.exports = class UserController {
 
         const user = new User({
             name: name,
-            password: passwordHash
+            password: passwordHash,
+            nivel: nivel
         })
 
         try {
@@ -132,7 +137,7 @@ module.exports = class UserController {
         const user = await getUserById(token)
 
         //receber os dados nas variaves
-        const { name, password, confirmpassword} = req.body
+        const { name, password, confirmpassword, nivel} = req.body
 
         //recebendo imagem do usuario
         // let image = ''
@@ -148,6 +153,10 @@ module.exports = class UserController {
         const userExists = await User.findOne({ where: { name: name } })
         if (user.name !== name && userExists) {
             res.status(422).json({ message: 'Por favor utilize outro namo de Usuario' })
+            return
+        }
+        if (!nivel) {
+            res.status(422).json({ message: 'O nível é obrigatório' })
             return
         }
 
@@ -170,6 +179,7 @@ module.exports = class UserController {
         }
 
         userToUpdate.name = name
+        userToUpdate.nivel = nivel
         // userToUpdate.image = image
 
         if (password === confirmpassword && password != null) {
