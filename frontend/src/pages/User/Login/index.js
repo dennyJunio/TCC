@@ -29,10 +29,10 @@ function Login() {
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <InputGroup
-          label='Email'
-          type='email'
-          name='email'
-          placeholder='Digite seu email'
+          label='name'
+          type='name'
+          name='name'
+          placeholder='Digite seu nome'
           handleChange={handleChange}
         />
         <InputGroup
@@ -44,9 +44,6 @@ function Login() {
         />
         <button type='submit'>Login</button>
       </form>
-      <p>
-        Não tem conta?? <Link to='/register'>Clique aqui!!!</Link>
-      </p>
     </div>
   )
 }

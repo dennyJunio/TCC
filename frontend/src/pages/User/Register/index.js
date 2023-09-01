@@ -7,6 +7,7 @@ import { useContext, useState } from 'react'
 
 //context
 import { Context } from '../../../context/UserContext'
+import SelectGroup from '../../../components/SelectGroup'
 
 function Register() {
   //a logica para enviar um formulario, ou para fazer qualquer coisa diferenciada em uma pagina fica nesse local
@@ -49,13 +50,14 @@ function Register() {
             name='confirmpassword'
             handleChange={handleChange}
           />
-          <InputGroup
-            type='password'
-            label='Confirme sua senha'
-            placeholder='Confirme sua senha'
-            name='confirmpassword'
-            handleChange={handleChange}
-          />
+          <SelectGroup 
+          name="nivel"
+          handleChange={handleChange}
+          >
+            <option>Nivel do Usuario</option>
+            <option value="0">Admin</option>
+            <option value="1">Usuario</option>
+          </SelectGroup> 
           <button type='submit'>Registrar</button>
         </form>
       </div>

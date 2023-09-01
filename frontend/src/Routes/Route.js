@@ -21,7 +21,7 @@ function Rotas() {
                 {authenticated ? (
                     <>
                         {/* User  */}
-                            <Route exact path="/user/profile" element={<Profile />} />
+                            <Route exact path="/" element={<Profile />} />
                             {/* <Route exact path="/settings/edit/:id" element={<EditDepart />} /> */}
                     </>
                 ) : (

@@ -1,21 +1,15 @@
 //input group
 // import Styles from './InputGroup.module.css'
 
-function SelectGroup({ label, placeholder, type, name, handleChange, value }) {
+function SelectGroup({children, handleChange, name}) {
     return (
         <div className='mb-3 input-group'>
-            <select>
-                op
-            </select>
-            <input
-                type={type}
-                placeholder={placeholder}
-                className='form-control'
-                name={name}
-                // toda vez que for lidar com eventos utilizar handle
+            <select
                 onChange={handleChange}
-                value={value}
-            />
+                name={name}
+            >
+                {children}
+            </select> 
         </div>
     )
 }
