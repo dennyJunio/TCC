@@ -2,7 +2,8 @@
 import React from 'react'
 import InputGroup from '../../../components/InputGroup'
 import 'bootstrap/dist/css/bootstrap.css';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import './style.css';
 
 //hooks
 import { useContext, useState } from 'react'
@@ -26,7 +27,7 @@ function Login() {
   }
 
   return (
-    <div class='card'>
+    <div class="card">
       <div class='card-body'>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
@@ -45,7 +46,7 @@ function Login() {
           placeholder='Digite seu password'
           handleChange={handleChange}
         />
-        <button type='submit'>Login</button>
+        <button type='submit' class="btn btn-info">Login</button>
       </form>
       </div>
     </div>
