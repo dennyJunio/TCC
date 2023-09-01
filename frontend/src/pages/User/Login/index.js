@@ -1,6 +1,7 @@
 //Login/index.js
 import React from 'react'
 import InputGroup from '../../../components/InputGroup'
+import 'bootstrap/dist/css/bootstrap.css';
 import { Link } from 'react-router-dom'
 
 //hooks
@@ -25,9 +26,11 @@ function Login() {
   }
 
   return (
-    <div>
+    <div class='card'>
+      <div class='card-body'>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
+        
         <InputGroup
           label='name'
           type='name'
@@ -44,6 +47,7 @@ function Login() {
         />
         <button type='submit'>Login</button>
       </form>
+      </div>
     </div>
   )
 }
