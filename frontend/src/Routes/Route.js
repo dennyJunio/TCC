@@ -10,9 +10,10 @@ import Login from '../pages/User/Login'
 import Register from "../pages/User/Register"
 import Profile from "../pages/User/Profile"
 
-//Chamados
-import Dashboard from "../pages/Chamados/Dashboard"
-import CriarChamado from "../pages/Chamados/CriarChamado"
+//Assistencia
+import Dashboard from "../pages/Assistencia/Dashboard"
+import CriarChamado from "../pages/Assistencia/CriarChamado"
+import Chamados from "../pages/Assistencia/Chamados"
 
 function Rotas() {
     const { authenticated } = useContext(Context)
@@ -24,10 +25,12 @@ function Rotas() {
                 <Routes>
                     {authenticated ? (
                         <>
-
                             <Route exact path="/dashboard" element={<Dashboard />} />
+                            {/* user */}
+
+                            {/* assistencia */}
                             <Route exact path="/criarchamado" element={<CriarChamado />} />
-                            <Route exact path="/profile" element={<Profile />} />
+                            <Route exact path="/chamados" element={<Chamados />} />
                         </>
                     ) : (
                         <>
