@@ -1,6 +1,3 @@
-//input group
-// import Styles from './InputGroup.module.css'
-
 function InputGroup({ label, placeholder, type, name, handleChange, value }) {
     return (
         <div className='mb-3 input-group'>
