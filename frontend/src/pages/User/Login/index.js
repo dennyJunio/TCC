@@ -1,7 +1,9 @@
 //Login/index.js
 import React from 'react'
-import InputGroup from '../../../components/InputGroup'
+import InputLogin from '../../../components/InputLogin'
 import { Link } from 'react-router-dom'
+import img from './img/imgLogin1.png'
+import './style.css';
 
 //hooks
 import { useContext, useState } from 'react'
@@ -25,25 +27,27 @@ function Login() {
   }
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <InputGroup
-          label='name'
-          type='name'
-          name='name'
-          placeholder='Digite seu nome'
-          handleChange={handleChange}
-        />
-        <InputGroup
-          label='password'
-          type='password'
-          name='password'
-          placeholder='Digite seu password'
-          handleChange={handleChange}
-        />
-        <button type='submit'>Login</button>
-      </form>
+    <div class="form">
+      <h4>Login</h4>
+      <div class="login">
+        <form class="input" onSubmit={handleSubmit}>
+          <InputLogin 
+            label='name'
+            type='name'
+            name='name'
+            placeholder='Username'
+            handleChange={handleChange}
+          />
+          <InputLogin
+            label='password'
+            type='password'
+            name='password'
+            placeholder='Password'
+            handleChange={handleChange}
+          />
+          <button class="button" type='submit'>Login</button>
+        </form>
+      </div>
     </div>
   )
 }
