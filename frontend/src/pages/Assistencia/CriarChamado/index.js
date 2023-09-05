@@ -19,7 +19,7 @@ function CriarChamado() {
     //{...user}: isso aqui, cria uma cópia do objeto user atual, usando a sintaze de espalhamento do javascript(...), essa cópia e feita para preservar valores existentes no objeto antes de fazer qualquer att
   }
 
-  function handleSubmit(evento){
+  function handleSubmit(evento) {
     evento.preventDefault()
     register(chamado)
   }
@@ -43,21 +43,22 @@ function CriarChamado() {
             name='descricao'
             handleChange={handleChange}
           />
-            <SelectGroup 
+          <SelectGroup
             name="tipo"
             handleChange={handleChange}
-            >
+          >
             <option>Tipo</option>
             <option value="0">Admin</option>
             <option value="1">Usuario</option>
-          </SelectGroup> 
-          {/* <InputGroup
-            type='password'
-            label='Confirme sua senha'
-            placeholder='Confirme sua senha'
-            name='confirmpassword'
+          </SelectGroup>
+          <SelectGroup
+            name="status"
             handleChange={handleChange}
-          /> */}
+          >
+            <option value="0">New</option>
+            <option value="1">Andamento</option>
+            <option value="2">Encerrado</option>
+          </SelectGroup>
           <button type='submit'>Registrar</button>
         </form>
       </div>
