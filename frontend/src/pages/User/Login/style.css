@@ -1,7 +1,14 @@
 .card{
-    margin: auto;
-    padding: 20px;
-    width: 30rem;
+   margin-top: 10rem;
+   margin-left: 37%;
+   margin-right: 37%;
+   justify-content: center;
 
+   /*Background*/
+
+}
+
+body{
+    background-color: rgb(161, 161, 161);
 }
 
