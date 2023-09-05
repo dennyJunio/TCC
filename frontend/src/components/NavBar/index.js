@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 //Contexto
 import { Context } from '../../context/UserContext'
-import "./styles.css"
+import "./style.css"
 
 function NavBar() {
     const { authenticated, logout } = useContext(Context)
@@ -35,24 +35,21 @@ function NavBar() {
                     </div>
                     <ul class="sub-menu">
                         <li><Link to='/' class="link-name">Assistência</Link></li>
-                        <li><a href="#">Chamado</a></li>
+                        <li><Link to='/criarchamado'>Criar Chamado</Link></li>
                         <li><a href="#">Assistência</a></li>
-                        <li><a href="#">Animation</a></li>
                     </ul>
                 </li>
                 <li>
                     <div class="icon-link">
                         <Link to='/'>
                             <i class="fab fa-blogger"></i>
-                            <span class="link-name">AlgumaCoisa?</span>
+                            <span class="link-name">Administração</span>
                         </Link>
                         <i class="fas fa-caret-down arrow"></i>
                     </div>
                     <ul class="sub-menu">
-                        <li><Link to='/' class="link-name">AlgumaCoisa?</Link></li>
-                        {/* <li><a href="#">Web Design</a></li>
-                        <li><a href="#">Card Design</a></li>
-                        <li><a href="#">Form Design</a></li> */}
+                        <li><Link to='/' class="link-name">Administração</Link></li>
+                        <li><Link to='/profile'>Usuarios</Link></li>
                     </ul>
                 </li>
                 <li>
