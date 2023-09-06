@@ -46,6 +46,7 @@ module.exports = class UserController {
             return
         }
 
+        //criando usuario
         const user = new User({
             name: name,
             password: passwordHash,

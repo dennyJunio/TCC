@@ -13,9 +13,9 @@ app.use(express.static('public'))
 
 //Rotas
 const UserRoutes = require('./routes/UserRoutes')
-// const PetRoutes = require('./routes/PetRoutes')
+const ChamadosRoutes = require('./routes/ChamadosRoutes')
 app.use('/users', UserRoutes)
-// app.use('/pets', PetRoutes)
+app.use('/chamados', ChamadosRoutes)
 
 conn
     .sync()
