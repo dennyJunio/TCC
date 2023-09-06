@@ -1,4 +1,4 @@
-function InputLogin({label, placeholder, type, name, handleChange, value }) {
+function InputLogin({placeholder, type, name, handleChange, value }) {
     return (
         <div className='mb-3 input-group'>
             <input

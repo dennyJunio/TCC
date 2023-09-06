@@ -2,7 +2,7 @@
 import React from 'react'
 import InputLogin from '../../../components/InputLogin'
 import { Link } from 'react-router-dom'
-import img from './img/imgLogin1.png'
+import img from './img/SupMate_icon_escuro.png'
 import './style.css';
 
 //hooks
@@ -27,9 +27,12 @@ function Login() {
   }
 
   return (
+    
     <div class="form">
+      <img class="logo" src={img}></img>
       <h4>Login</h4>
       <div class="login">
+        <h5>Usuário</h5>
         <form class="input" onSubmit={handleSubmit}>
           <InputLogin 
             label='name'
@@ -38,6 +41,7 @@ function Login() {
             placeholder='Username'
             handleChange={handleChange}
           />
+          <h5>Senha</h5>
           <InputLogin
             label='password'
             type='password'
