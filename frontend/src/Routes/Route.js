@@ -8,7 +8,6 @@ import { Context } from '../context/UserContext'
 // Usuario 
 import Login from '../pages/User/Login'
 import Register from "../pages/User/Register"
-import Profile from "../pages/User/Profile"
 
 //Assistencia
 import Dashboard from "../pages/Assistencia/Dashboard"
@@ -29,7 +28,7 @@ function Rotas() {
                             {/* user */}
 
                             {/* assistencia */}
-                            <Route exact path="/criarchamado" element={<CriarChamado />} />
+                            <Route exact path="/chamados/create" element={<CriarChamado />} />
                             <Route exact path="/chamados" element={<Chamados />} />
                         </>
                     ) : (

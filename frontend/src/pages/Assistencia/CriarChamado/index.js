@@ -11,17 +11,34 @@ import SelectGroup from '../../../components/SelectGroup'
 
 function CriarChamado() {
   //a logica para enviar um formulario, ou para fazer qualquer coisa diferenciada em uma pagina fica nesse local
-  const [chamado, setUser] = useState({})
-  const { register } = useContext(Context)
+  const [chamado, setChamado] = useState({})
+  const [token] = useState(localStorage.getItem('token') || '')
 
   function handleChange(evento) {
-    setUser({ ...chamado, [evento.target.name]: evento.target.value })
+    setChamado({ ...chamado, [evento.target.name]: evento.target.value })
     //{...user}: isso aqui, cria uma cópia do objeto user atual, usando a sintaze de espalhamento do javascript(...), essa cópia e feita para preservar valores existentes no objeto antes de fazer qualquer att
   }
 
-  function handleSubmit(evento) {
+  async function handleSubmit(evento) {
     evento.preventDefault()
-    register(chamado)
+
+    const formData = new FormData()
+
+    //montando objeto com o formulario
+    await Object.keys(chamado).forEach((key) => formData.append(key, chamado[key]))
+
+    // const data = await api.post(`pets/create`, formData, {
+    //   headers: {
+    //     Authorization: `Bearer ${JSON.parse(token)}`,
+    //     'Content-Type': 'multipart/form-data'
+    //   }
+    // }).then((response) => {
+    //   return response.data
+    // }).catch((err) => {
+    //   alert(err.response.data)
+    //   return err.response.data
+    // })
+    // alert(data.message)
   }
 
   return (
