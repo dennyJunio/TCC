@@ -1,12 +1,7 @@
 //componente register 
-import React from 'react'
+import React, { useState } from 'react'
+import api from '../../../utils/api'
 import InputGroup from '../../../components/InputGroup'
-
-//hooks
-import { useContext, useState } from 'react'
-
-//context
-import { Context } from '../../../context/UserContext'
 import SelectGroup from '../../../components/SelectGroup'
 
 function CriarChamado() {
@@ -27,18 +22,18 @@ function CriarChamado() {
     //montando objeto com o formulario
     await Object.keys(chamado).forEach((key) => formData.append(key, chamado[key]))
 
-    // const data = await api.post(`pets/create`, formData, {
-    //   headers: {
-    //     Authorization: `Bearer ${JSON.parse(token)}`,
-    //     'Content-Type': 'multipart/form-data'
-    //   }
-    // }).then((response) => {
-    //   return response.data
-    // }).catch((err) => {
-    //   alert(err.response.data)
-    //   return err.response.data
-    // })
-    // alert(data.message)
+    const data = await api.post(`/chamados/create`, formData, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(token)}`,
+        'Content-Type': 'application/json'
+      }
+    }).then((response) => {
+      return response.data
+    }).catch((err) => {
+      alert(err.response.data)
+      return err.response.data
+    })
+    alert(data.message)
   }
 
   return (
@@ -48,7 +43,7 @@ function CriarChamado() {
         <form onSubmit={handleSubmit}>
           <InputGroup
             type='text'
-            label='Titulo'
+            label='titulo'
             placeholder='Adicione titulo'
             name='titulo'
             handleChange={handleChange}
@@ -65,14 +60,14 @@ function CriarChamado() {
             handleChange={handleChange}
           >
             <option>Tipo</option>
-            <option value="0">Admin</option>
-            <option value="1">Usuario</option>
+            <option value="0">Incident</option>
+            <option value="1">Requisição</option>
           </SelectGroup>
           <SelectGroup
             name="status"
             handleChange={handleChange}
           >
-            <option value="0">New</option>
+            <option value="0">Novo</option>
             <option value="1">Andamento</option>
             <option value="2">Encerrado</option>
           </SelectGroup>
