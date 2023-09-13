@@ -1,7 +1,7 @@
 import React, { Children, useContext } from 'react'
 //Contexto
 import { Context } from '../../context/UserContext'
-import "./styleMargin.css"
+import "./style.css"
 
 function MarginNav({children, className}) {
     const { authenticated, logout } = useContext(Context)

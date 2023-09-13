@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 //Contexto
 import { Context } from '../../context/UserContext'
-import "./styleNavbar.css"
+import "./style.css"
 
 function NavBar() {
     const { authenticated, logout } = useContext(Context)
