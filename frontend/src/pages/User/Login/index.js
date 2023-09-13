@@ -3,7 +3,7 @@ import React from 'react'
 import InputLogin from '../../../components/InputLogin'
 import { Link } from 'react-router-dom'
 import img from './img/SupMate_fundoClaro.png'
-import './style.css';
+import './styleLogin.css';
 
 //hooks
 import { useContext, useState } from 'react'
@@ -28,31 +28,33 @@ function Login() {
 
   return (
 
-    <div class="form">
-      <img class="logo" src={img}></img>
-      <h4>Login</h4>
-      <div class="login">
-        <h5>Usuário</h5>
-        <form class="input" onSubmit={handleSubmit}>
-          <InputLogin
-            label='name'
-            type='name'
-            name='name'
-            placeholder='Username'
-            handleChange={handleChange}
-          />
-          <h5>Senha</h5>
-          <InputLogin
-            label='password'
-            type='password'
-            name='password'
-            placeholder='Password'
-            handleChange={handleChange}
-          />
-          <button class="button" type='submit'>Login</button>
-        </form>
+    <section className='body'>
+      <div class="form">
+        <img class="logo" src={img}></img>
+        <h4>Login</h4>
+        <div class="login">
+          <h5>Usuário</h5>
+          <form class="input" onSubmit={handleSubmit}>
+            <InputLogin
+              label='name'
+              type='name'
+              name='name'
+              placeholder='Username'
+              handleChange={handleChange}
+            />
+            <h5>Senha</h5>
+            <InputLogin
+              label='password'
+              type='password'
+              name='password'
+              placeholder='Password'
+              handleChange={handleChange}
+            />
+            <button class="button" type='submit'>Login</button>
+          </form>
+        </div>
       </div>
-    </div>
+    </section>
   )
 }
 

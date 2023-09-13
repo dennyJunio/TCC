@@ -20,11 +20,12 @@ function Rotas() {
     return (
         <>
             {authenticated ? <NavBar /> : null}
-            <MarginNav>
+            <MarginNav
+                className={authenticated ? 'marginNav' : 'marginNavNone'}
+            >
                 <Routes>
                     {authenticated ? (
                         <>
-
                             <Route exact path="/dashboard" element={<Dashboard />} />
                             <Route exact path="/criarchamado" element={<CriarChamado />} />
                             <Route exact path="/profile" element={<Profile />} />

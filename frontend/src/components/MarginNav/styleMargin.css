@@ -2,4 +2,9 @@
     margin-top: 1rem;
     margin-left: 6.25rem;
     margin-right: 6.25rem;
+    
+}
+
+.marginNavNone{
+    margin: auto;
 }
