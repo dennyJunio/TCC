@@ -7,10 +7,10 @@ const getToken = require('../helpers/get-token')
 const getUserById = require('../helpers/get-user-by-token')
 const getUserByToken = require('../Helpers/get-user-by-token')
 
-module.exports = class ChamadosController { 
+module.exports = class ChamadosController {
     static async create(req, res) {
-        const { titulo, tipo, descricao, status} = req.body
-        
+        const { titulo, tipo, descricao, status } = req.body
+
         //validações
         if (!titulo) {
             res.status(422).json({ message: 'O titulo é obrigatório' })
@@ -30,14 +30,14 @@ module.exports = class ChamadosController {
         const token = getToken(req)
         const decoded = jwt.verify(token, 'nossosecret')
         currentUser = await User.findByPk(decoded.id)
-        
+
         //criando chamados
         const chamados = new Chamados({
-        titulo: titulo,
-        descricao: descricao,
-        tipo: tipo,
-        status: status,
-        fk_user: currentUser.id
+            titulo: titulo,
+            descricao: descricao,
+            tipo: tipo,
+            status: status,
+            fk_user: currentUser.id
         });
 
         try {
@@ -50,6 +50,14 @@ module.exports = class ChamadosController {
         }
     }
 
+    static async getAll(res) {
+        const chamados = await Chamados.findAll({
+            order: [['createdAt', 'DESC']]
+        });
+
+        res.status(200).json({ chamados: chamados });
+    }
+
     //filtrando os chamados por usuario
     static async getAllUserChamados(req, res) {
         //encontrando o usuario logado
@@ -60,13 +68,12 @@ module.exports = class ChamadosController {
         currentUser.password = undefined
         const currentUserId = currentUser.id
 
-        const chamados = await Chamados.findAll({ 
-            where: { userId: currentUserId }, 
-            order: [['createdAt', 'DESC']] ,
+        const chamados = await Chamados.findAll({
+            where: { userId: currentUserId },
+            order: [['createdAt', 'DESC']],
         })
 
         res.status(200).json({ chamados })
-
     }
 
     static async removeChamdosById(req, res) {
