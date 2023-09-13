@@ -36,10 +36,7 @@ function ListaChamados() {
       })
     }
   }, [])
-
-
-
-
+ 
   return (
     <div>
       <h2>Lista de Chamados</h2>
