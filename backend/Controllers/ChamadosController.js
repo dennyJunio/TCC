@@ -1,6 +1,5 @@
 const User = require('../Model/User')
 const Chamados = require('../Model/Chamados')
-const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
 //helpers
@@ -11,6 +10,7 @@ const getUserByToken = require('../Helpers/get-user-by-token')
 module.exports = class ChamadosController { 
     static async create(req, res) {
         const { titulo, tipo, descricao, status} = req.body
+        
         //validações
         if (!titulo) {
             res.status(422).json({ message: 'O titulo é obrigatório' })
@@ -21,29 +21,30 @@ module.exports = class ChamadosController {
             return
         }
         if (!status) {
-            res.status(422).json({ message: 'O tipo é obrigatório' })
+            res.status(422).json({ message: 'O status é obrigatório' })
             return
         }
 
-        //pegando o dono do pet
+        //pegando o dono do chamados
         let currentUser
         const token = getToken(req)
         const decoded = jwt.verify(token, 'nossosecret')
         currentUser = await User.findByPk(decoded.id)
         
-        //criando pet
-        const chamados = new Pet({
+        //criando chamados
+        const chamados = new Chamados({
         titulo: titulo,
         descricao: descricao,
         tipo: tipo,
         status: status,
+        fk_user: currentUser.id
         });
 
         try {
             // Save the pet to the database
-            const newchamados = await chamados.save();
+            const newChamados = await chamados.save();
 
-            res.status(201).json({ message: 'O chamado foi feito com sucesso', newchamados });
+            res.status(201).json({ message: 'O chamado foi feito com sucesso', newChamados });
         } catch (error) {
             res.status(500).json({ message: error });
         }
@@ -62,7 +63,6 @@ module.exports = class ChamadosController {
         const chamados = await Chamados.findAll({ 
             where: { userId: currentUserId }, 
             order: [['createdAt', 'DESC']] ,
-            include: ImagePet
         })
 
         res.status(200).json({ chamados })
@@ -85,7 +85,7 @@ module.exports = class ChamadosController {
             return
         }
 
-        //checar se o usuario logado registrou o pet
+        //checar se o usuario logado registrou o chamdo
         let currentUser
         const token = getToken(req)
         const decoded = jwt.verify(token, 'nossosecret')

@@ -18,21 +18,13 @@ const Chamados = db.define('Chamados', {
     },
     status: {
         type: DataTypes.INTEGER,
-        allowNull: true
+        allowNull: false
     },
     fk_user: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
             model: User,
-            key: 'id'
-        }
-    },
-    fk_categoria: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: Categoria,
             key: 'id'
         }
     }
