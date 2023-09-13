@@ -46,7 +46,7 @@ function useAuth() {
                 })
             alert(data.message)
             await authUser(data)
-            navigate('user/profile')
+            navigate('/dashboard')
         } catch (error) {
             alert(error.response.data.message)
         }
