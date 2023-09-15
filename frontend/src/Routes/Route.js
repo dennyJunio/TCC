@@ -13,6 +13,7 @@ import Register from "../pages/User/Register"
 import Dashboard from "../pages/Assistencia/Dashboard"
 import CriarChamado from "../pages/Assistencia/CriarChamado"
 import Chamados from "../pages/Assistencia/Chamados"
+import EditarChamado from "../pages/Assistencia/EditarChamado"
 
 function Rotas() {
     const { authenticated } = useContext(Context)
@@ -29,6 +30,7 @@ function Rotas() {
 
                             {/* assistencia */}
                             <Route exact path="/chamados/create" element={<CriarChamado />} />
+                            <Route exact path="/chamados/:id" element={<EditarChamado />} />
                             <Route exact path="/chamados" element={<Chamados />} />
                         </>
                     ) : (

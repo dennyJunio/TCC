@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'
 import api from '../../../utils/api';
 import { useNavigate } from 'react-router-dom'
 
@@ -25,19 +26,19 @@ function ListaChamados() {
     }
   }, [])
 
-   useEffect(() => {
+  useEffect(() => {
     // Somente executa o useEffect se o user.nivel for igual a 0
     if (user.nivel === 0) {
       api.get('/chamados/getall').then((response) => {
         setChamados(response.data.chamados)
       })
-    } else if (user.nivel === 1){ 
+    } else if (user.nivel === 1) {
       api.get('/chamados/mychamados').then((response) => {
         setChamados(response.data.chamados)
-      })    
+      })
     }
   }, [])
- 
+
   return (
     <div>
       <h2>Lista de Chamados</h2>
@@ -46,25 +47,29 @@ function ListaChamados() {
           <tr>
             <th scope="col">#</th>
             <th scope="col">Título</th>
-            <th scope="col">Descrição</th>    
+            <th scope="col">Descrição</th>
             <th scope="col">Tipo</th>
             <th scope="col">Status</th>
+            <th scope="col">Creado</th>
           </tr>
         </thead>
         <tbody>
           {chamados.map((chamado, index) => (
             <tr key={index}>
               <th scope="row">{index + 1}</th>
-              <td>{chamado.titulo}</td>
+              <td>
+                <Link to={`/chamados/${chamado.id}`}>{chamado.titulo}</Link>
+              </td>
               <td>{chamado.descricao}</td>
               <td>{chamado.tipo}</td>
               <td>{chamado.status}</td>
+              <td>{chamado.createdAt} </td>   
             </tr>
-          ))}  
+          ))}
         </tbody>
       </table>
-    </div>
+    </div> 
   );
 }
 
-export default ListaChamados;
+export default ListaChamados; 
