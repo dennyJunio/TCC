@@ -25,15 +25,16 @@ function ListaChamados() {
     }
   }, [])
 
-   console.log(user.nivel === 0)
-
-
    useEffect(() => {
     // Somente executa o useEffect se o user.nivel for igual a 0
     if (user.nivel === 0) {
       api.get('/chamados/getall').then((response) => {
         setChamados(response.data.chamados)
       })
+    } else if (user.nivel === 1){ 
+      api.get('/chamados/mychamados').then((response) => {
+        setChamados(response.data.chamados)
+      })    
     }
   }, [])
  
@@ -45,7 +46,7 @@ function ListaChamados() {
           <tr>
             <th scope="col">#</th>
             <th scope="col">Título</th>
-            <th scope="col">Descrição</th>
+            <th scope="col">Descrição</th>    
             <th scope="col">Tipo</th>
             <th scope="col">Status</th>
           </tr>
@@ -59,7 +60,7 @@ function ListaChamados() {
               <td>{chamado.tipo}</td>
               <td>{chamado.status}</td>
             </tr>
-          ))}
+          ))}  
         </tbody>
       </table>
     </div>

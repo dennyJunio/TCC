@@ -19,7 +19,7 @@ function Register() {
     //{...user}: isso aqui, cria uma cópia do objeto user atual, usando a sintaze de espalhamento do javascript(...), essa cópia e feita para preservar valores existentes no objeto antes de fazer qualquer att
   }
 
-  function handleSubmit(evento){
+  function handleSubmit(evento) {
     evento.preventDefault()
     register(user)
   }
@@ -50,14 +50,15 @@ function Register() {
             name='confirmpassword'
             handleChange={handleChange}
           />
-          <SelectGroup 
-          name="nivel"
-          handleChange={handleChange}
+          <SelectGroup
+            name="nivel"
+            label="Tipo de Usuario"
+            handleChange={handleChange}
           >
-            <option>Nivel do Usuario</option>
+            <option selected disabled>Nivel</option>
             <option value="0">Admin</option>
             <option value="1">Usuario</option>
-          </SelectGroup> 
+          </SelectGroup>
           <button type='submit'>Registrar</button>
         </form>
       </div>
