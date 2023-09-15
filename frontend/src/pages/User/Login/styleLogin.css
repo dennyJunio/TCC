@@ -5,10 +5,11 @@
 } */
 
 .body{
-    /* background-color: #171527; */
-    background-image: url(./img/imgLogin4.jpeg);
+    
+    background: #11101d;
+    background-image: url(./img/imgLogin2.png);
+    background-position: center center;
     background-size: cover;
-    /* background: #11101d; */
     /* width: 100%; */
     height: 100vh;
     display: flex;
@@ -22,7 +23,7 @@
     display: flex;
     flex-direction: column;
     background-color: #171527;
-    box-shadow: 2px 2px 20px rgb(36, 36, 235);
+    /* box-shadow: 2px 2px 20px rgb(87, 29, 221); */
     border-radius: 10px;
     align-items: center;
 }
