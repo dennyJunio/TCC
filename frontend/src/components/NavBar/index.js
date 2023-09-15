@@ -35,8 +35,8 @@ function NavBar() {
                     </div>
                     <ul class="sub-menu">
                         <li><Link to='/' class="link-name">Assistência</Link></li>
-                        <li><Link to='/criarchamado'>Criar Chamado</Link></li>
-                        <li><a href="#">Assistência</a></li>
+                        <li><Link to='/chamados/create'>Criar Chamado</Link></li>
+                        <li><Link to='/chamados'>Chamados</Link></li>
                     </ul>
                 </li>
                 <li>
