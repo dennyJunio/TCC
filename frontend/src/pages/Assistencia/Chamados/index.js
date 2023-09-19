@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import api from '../../../utils/api';
 import { useNavigate } from 'react-router-dom'
 
-
 function ListaChamados() {
   const [chamados, setChamados] = useState([])
   const [user, setUser] = useState({})
@@ -23,13 +22,13 @@ function ListaChamados() {
       })
       .then((response) => {
         console.log('Response:', response);
-        setUser(response.data);  
-      })
+        setUser(response.data);
+      }) 
       .catch((error) => {
-        console.error('API Error:', error.response);
-      });    
-    }         
-  }, []);
+        console.error('API Error:', error.response); 
+      });
+    }
+  }, [token]);  // Added token as a dependency
   
   useEffect(() => {
     // Somente executa o useEffect se o user.nivel for igual a 0
@@ -42,10 +41,11 @@ function ListaChamados() {
         setChamados(response.data.chamados)
       })
     }
-  }, [])
+  }, [user.nivel]);  
+  
 
-  return (
-    <div>
+  return ( 
+    <div>   
       <h2>Lista de Chamados</h2>
       <table className="table table-striped">
         <thead>
@@ -61,7 +61,7 @@ function ListaChamados() {
         <tbody>
           {chamados.map((chamado, index) => (
             <tr key={index}>
-              <th scope="row">{index + 1}</th>
+              <th scope="row">{chamado.id}</th>
               <td>
                 <Link to={`/chamados/${chamado.id}`}>{chamado.titulo}</Link>
               </td>
@@ -77,4 +77,4 @@ function ListaChamados() {
   );
 }
 
-export default ListaChamados; 
+export default ListaChamados;  

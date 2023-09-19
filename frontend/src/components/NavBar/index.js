@@ -48,7 +48,7 @@ function NavBar() {
                     </div>
                     <ul class="sub-menu">
                         <li><Link to='/' class="link-name">Administração</Link></li>
-                        <li><Link to='/profile'>Usuarios</Link></li>
+                        <li><Link to='/administracao'>Usuarios</Link></li>
                     </ul>
                 </li>
                 <li>

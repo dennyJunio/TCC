@@ -47,7 +47,7 @@ function EditarChamado() {
             const response = await api.patch(`chamados/editar/${chamados.id}`, formData, {
                 headers: {
                     Authorization: `Bearer ${JSON.parse(token)}`,
-                    'Content-Type': 'multipart/form-data'
+                    'Content-Type': 'application/json'
                 }
             });
             alert(response.data.message);
@@ -64,10 +64,9 @@ function EditarChamado() {
                     <InputGroup
                         type='text'
                         label='titulo'
-                        placeholder='Adicione titulo'
+                        placeholder='....'
                         name='titulo'
                         handleChange={handleChange}
-                        value={chamados.titulo}
                     />
                     <InputGroup
                         type='text'
@@ -75,7 +74,6 @@ function EditarChamado() {
                         placeholder='....'
                         name='descricao'
                         handleChange={handleChange}
-                        value={chamados.descricao}
                     />
                     <SelectGroup
                         name="tipo"
@@ -96,7 +94,8 @@ function EditarChamado() {
                         <option selected disabled>Status</option>
                         <option value="Novo">Novo</option>
                         <option value="Andamento">Andamento</option>
-                        <option value="Encerrado">Encerrado</option>
+                        <option value="Solucionado">Solucionado</option>
+                        <option value="Cancelado">Cancelado</option>
                     </SelectGroup>
                     <button type='submit'>Registrar</button>
                 </form>
