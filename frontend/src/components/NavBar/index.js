@@ -72,7 +72,7 @@ function NavBar() {
                 </li>
                 <li onClick={logout}>
                     <Link to='/'>
-                        <i class="fas fa-gear"></i>
+                    <i class="fa-solid fa-right-from-bracket"></i>
                         <span class="link-name">Sair</span>
                     </Link>
                     <ul class="sub-menu blank">

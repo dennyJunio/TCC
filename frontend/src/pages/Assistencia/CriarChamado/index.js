@@ -37,9 +37,9 @@ function CriarChamado() {
   }
 
   return (
-    <div>
+    <div className='chamadoBody'>
       <h2>Abrir Chamado</h2>
-      <div>
+      <div className='chamadoForm'>
         <form onSubmit={handleSubmit}>
           <InputGroup
             type='text'
