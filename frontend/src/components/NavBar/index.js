@@ -19,9 +19,8 @@ function NavBar() {
                         <i class="fab fa-microsoft"></i>
                         <span class="link-name">Dashboard</span>
                     </Link>
-
                     <ul class="sub-menu blank">
-                        <li><Link to='/' class="link-name">Dashboard</Link></li>
+                        <li><Link to='/dashboard' class="link-name">Dashboard</Link></li>
                     </ul>
                 </li>
 

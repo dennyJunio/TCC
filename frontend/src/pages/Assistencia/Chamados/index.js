@@ -20,12 +20,17 @@ function ListaChamados() {
         headers: {
           Authorization: `Bearer ${JSON.parse(token)}`
         }
-      }).then((response) => {
-        setUser(response.data)
       })
-    }
-  }, [])
-
+      .then((response) => {
+        console.log('Response:', response);
+        setUser(response.data);  
+      })
+      .catch((error) => {
+        console.error('API Error:', error.response);
+      });    
+    }         
+  }, []);
+  
   useEffect(() => {
     // Somente executa o useEffect se o user.nivel for igual a 0
     if (user.nivel === 0) {
