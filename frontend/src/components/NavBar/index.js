@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 //Contexto
 import { Context } from '../../context/UserContext'
+import img from './img/imgLogo.png'
 import "./style.css"
 
 function NavBar() {
@@ -10,7 +11,7 @@ function NavBar() {
     return (
         <div class="sidebar close">
             <div class="logo">
-                <i class="fab fa-trade-federation"></i>
+            <img class="logoSupmate" src={img}></img>
                 <span class="logo-name">SupMate</span>
             </div>
             <ul class="nav-list">
@@ -70,9 +71,9 @@ function NavBar() {
                         <li><Link to='/' class="link-name">Configurar</Link></li>
                     </ul>
                 </li>
-                <li onClick={logout}>
+                <li onClick={logout} className="exit">
                     <Link to='/'>
-                        <i class="fas fa-gear"></i>
+                    <i class="fa-solid fa-right-from-bracket"></i>
                         <span class="link-name">Sair</span>
                     </Link>
                     <ul class="sub-menu blank">
