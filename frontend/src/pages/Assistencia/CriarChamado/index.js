@@ -72,7 +72,8 @@ function CriarChamado() {
             <option selected disabled>Status</option>
             <option value="Novo">Novo</option>
             <option value="Andamento">Andamento</option>
-            <option value="Encerrado">Encerrado</option>
+            <option value="Solucionado">Solucionado</option>
+            <option value="Cancelado">Cancelado</option>
           </SelectGroup>
           <button type='submit'>Registrar</button>
         </form>

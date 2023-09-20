@@ -8,6 +8,7 @@ const verifyToken = require('../helpers/verify-token')
 //---------------- rotas publicas ----------------
 router.post('/register', UserController.register)
 router.post('/login', UserController.login)
+router.get('/myusers', verifyToken, UserController.getAll)
 router.get('/checkuser', UserController.checkUser)
 router.get('/:id', UserController.getUserById)
 

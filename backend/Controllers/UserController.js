@@ -62,7 +62,6 @@ module.exports = class UserController {
             res.status(500).json({ message: error.message })
         }
     }
-
     //Repensa sobre o windos alert que aparece ali
     static async login(req, res) {
         const { name, password } = req.body
@@ -198,5 +197,18 @@ module.exports = class UserController {
             res.status(500).json({ message: error.message })
         }
 
+    }
+
+    static async getAll(req, res) {
+        try {
+            const users = await User.findAll({
+                order: [['createdAt', 'DESC']]
+            });
+
+            res.status(200).json({ users: users });
+        } catch (error) {
+            console.error('Erro:', error.message);
+            res.status(500).json({ message: 'Erro no servidor' });
+        }
     }
 }
