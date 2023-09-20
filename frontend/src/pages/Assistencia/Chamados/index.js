@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import api from '../../../utils/api';
 import { useNavigate } from 'react-router-dom'
+import moment from 'moment';
 
 function ListaChamados() {
   const [chamados, setChamados] = useState([])
@@ -68,7 +69,7 @@ function ListaChamados() {
               <td>{chamado.descricao}</td>
               <td>{chamado.tipo}</td>
               <td>{chamado.status}</td>
-              <td>{chamado.createdAt} </td>   
+              <td>{moment(chamado.createdAt).format('DD/MM/YYYY - HH:mm')}</td>
             </tr>
           ))}
         </tbody>
@@ -77,4 +78,4 @@ function ListaChamados() {
   );
 }
 
-export default ListaChamados;  
+export default ListaChamados; 
