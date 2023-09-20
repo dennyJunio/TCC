@@ -9,6 +9,9 @@ import { Context } from '../context/UserContext'
 import Login from '../pages/User/Login'
 import Register from "../pages/User/Register"
 
+// Administracao
+import ListaUser from '../pages/Administracao/Usuarios'
+
 //Assistencia
 import Dashboard from "../pages/Assistencia/Dashboard"
 import CriarChamado from "../pages/Assistencia/CriarChamado"
@@ -26,7 +29,8 @@ function Rotas() {
                     {authenticated ? (
                         <>
                             <Route exact path="/dashboard" element={<Dashboard />} />
-                            {/* user */}
+                            {/* administracao */}
+                            <Route exact path="/administracao" element={<ListaUser   />} />
 
                             {/* assistencia */}
                             <Route exact path="/chamados/create" element={<CriarChamado />} />

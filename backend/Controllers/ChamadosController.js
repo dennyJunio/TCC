@@ -135,7 +135,7 @@ module.exports = class ChamadosController {
         const decoded = jwt.verify(token, 'nossosecret')
         currentUser = await User.findByPk(decoded.id)
 
-        if (chamados.UserId !== currentUser.id) {
+        if (chamados.fk_user !== currentUser.id) {
             res.status(422).json({ message: "ID inválido!" });
             return;
         }

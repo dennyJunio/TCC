@@ -20,9 +20,8 @@ function NavBar() {
                         <i class="fab fa-microsoft"></i>
                         <span class="link-name">Dashboard</span>
                     </Link>
-
                     <ul class="sub-menu blank">
-                        <li><Link to='/' class="link-name">Dashboard</Link></li>
+                        <li><Link to='/dashboard' class="link-name">Dashboard</Link></li>
                     </ul>
                 </li>
 
@@ -50,7 +49,7 @@ function NavBar() {
                     </div>
                     <ul class="sub-menu">
                         <li><Link to='/' class="link-name">Administração</Link></li>
-                        <li><Link to='/profile'>Usuarios</Link></li>
+                        <li><Link to='/administracao'>Usuarios</Link></li>
                     </ul>
                 </li>
                 <li>

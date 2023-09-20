@@ -5,51 +5,55 @@ import InputGroup from '../../../components/InputGroup'
 import SelectGroup from '../../../components/SelectGroup'
 
 function EditarChamado() {
-    const [chamados, setChamados] = useState([])
-    const [preview, setPreview] = useState()
+    const [chamados, setChamados] = useState({});
     const [token, setToken] = useState(localStorage.getItem('token') || '');
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!token) {
-            alert('Por favor faça o login')
-            navigate('/login')
+            alert('Por favor faça o login');
+            navigate('/login');
         } else {
             api.get('/users/checkuser', {
                 headers: {
                     Authorization: `Bearer ${JSON.parse(token)}`
                 }
             }).then((response) => {
-                setChamados(response.data)
-            })
-        }  
-    }, [token, navigate])
-  
-    function handleChange(e) {
-        setChamados({ ...chamados, [e.target.name]: e.target.value })
+                setChamados(response.data);
+            }).catch(error => {
+                console.error('Erro ao verificar usuário:', error);
+                // Pode redirecionar para a página de login aqui se o token for inválido ou expirou.
+                navigate('/login');
+            });
+        }
+    }, [token, navigate]);
+
+    function handleChange(evento) {
+        const { name, value } = evento.target;
+        setChamados(prevChamados => ({
+            ...prevChamados,
+            [name]: value
+        }));
     }
 
     async function handleSubmit(e) {
-        e.preventDefault()
+        e.preventDefault();
 
-        const formData = new FormData()
+        const formData = new FormData();
 
-        //adiciona as outras propriedades do usuario ao formData
-        await Object.keys(chamados).forEach((key) => formData.append(key, chamados[key]))
+        Object.keys(chamados).forEach((key) => formData.append(key, chamados[key]));
 
-        const data = await api.patch(`chamados/editar/${chamados.id}`, formData, {
-            headers: {
-                Authorization: `Bearer ${JSON.parse(token)}`,
-                'Content-Type': 'multipart/form-data'
-            }
-        }).then((response) => {
-            return response.data
-        }).catch((err) => {
-            alert(err.response.data)
-            return err.response.data
-        })
-
-        alert(data.message)
+        try {
+            const response = await api.patch(`chamados/editar/${chamados.id}`, formData, {
+                headers: {
+                    Authorization: `Bearer ${JSON.parse(token)}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+            alert(response.data.message);
+        } catch (error) {
+            console.error('Erro ao editar chamado:', error);
+        }
     }
 
     return (
@@ -60,10 +64,9 @@ function EditarChamado() {
                     <InputGroup
                         type='text'
                         label='titulo'
-                        placeholder='Adicione titulo'
+                        placeholder='....'
                         name='titulo'
                         handleChange={handleChange}
-                        value={chamados.titulo}
                     />
                     <InputGroup
                         type='text'
@@ -71,7 +74,6 @@ function EditarChamado() {
                         placeholder='....'
                         name='descricao'
                         handleChange={handleChange}
-                        value={chamados.descricao}
                     />
                     <SelectGroup
                         name="tipo"
@@ -92,7 +94,8 @@ function EditarChamado() {
                         <option selected disabled>Status</option>
                         <option value="Novo">Novo</option>
                         <option value="Andamento">Andamento</option>
-                        <option value="Encerrado">Encerrado</option>
+                        <option value="Solucionado">Solucionado</option>
+                        <option value="Cancelado">Cancelado</option>
                     </SelectGroup>
                     <button type='submit'>Registrar</button>
                 </form>
