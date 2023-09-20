@@ -68,7 +68,7 @@ function NavBar() {
                         <li>
                             <div className="icon-link">
                                 <Link to='/'>
-                                    <i className="fab fa-blogger"></i>
+                                <i class="fa-solid fa-shield-halved"></i>
                                     <span className="link-name">Administração</span>
                                 </Link>
                                 <i className="fas fa-caret-down arrow"></i>
