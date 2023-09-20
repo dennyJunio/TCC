@@ -41,8 +41,8 @@ function CriarChamado() {
     <div className='bodyChamadoCriar'>
       <h2>Abrir Chamado</h2>
       <div className='formChamado'>
-        <h5>Título</h5>
         <form className='inputChamado' onSubmit={handleSubmit}>
+          <h5>Título</h5>
           <InputChamados
             type='text'
             label='titulo'
@@ -58,6 +58,13 @@ function CriarChamado() {
             name='descricao'
             handleChange={handleChange}
           />
+
+          <button type='submit'>Registrar</button>
+        </form>
+      </div>
+
+      <div className='options'>
+        <section className="OpTipo">
           <SelectGroup
             name="tipo"
             label='Tipo'
@@ -67,19 +74,18 @@ function CriarChamado() {
             <option value="Incident">Incident</option>
             <option value="Requisição">Requisição</option>
           </SelectGroup>
-          <SelectGroup
-            name="status"
-            label='Status'
-            handleChange={handleChange}
-          >
-            <option selected disabled>Status</option>
-            <option value="Novo">Novo</option>
-            <option value="Andamento">Andamento</option>
-            <option value="Solucionado">Solucionado</option>
-            <option value="Cancelado">Cancelado</option>
-          </SelectGroup>
-          <button type='submit'>Registrar</button>
-        </form>
+        </section>
+        <SelectGroup
+          name="status"
+          label='Status'
+          handleChange={handleChange}
+        >
+          <option selected disabled>Status</option>
+          <option value="Novo">Novo</option>
+          <option value="Andamento">Andamento</option>
+          <option value="Solucionado">Solucionado</option>
+          <option value="Cancelado">Cancelado</option>
+        </SelectGroup>
       </div>
     </div>
   )
