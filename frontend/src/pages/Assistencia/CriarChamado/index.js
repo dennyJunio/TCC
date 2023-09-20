@@ -1,8 +1,9 @@
 //componente register 
 import React, { useState } from 'react'
 import api from '../../../utils/api'
-import InputGroup from '../../../components/InputGroup'
+import InputChamados from '../../../components/InputChamados'
 import SelectGroup from '../../../components/SelectGroup'
+import "./styleCriarChamado.css"
 
 function CriarChamado() {
   //a logica para enviar um formulario, ou para fazer qualquer coisa diferenciada em uma pagina fica nesse local
@@ -37,18 +38,20 @@ function CriarChamado() {
   }
 
   return (
-    <div>
+    <div className='bodyChamadoCriar'>
       <h2>Abrir Chamado</h2>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <InputGroup
+      <div className='formChamado'>
+        <h5>Título</h5>
+        <form className='inputChamado' onSubmit={handleSubmit}>
+          <InputChamados
             type='text'
             label='titulo'
             placeholder='Adicione titulo'
             name='titulo'
             handleChange={handleChange}
           />
-          <InputGroup
+          <h5>Descrição</h5>
+          <InputChamados
             type='text'
             label='Descrição'
             placeholder='....'
