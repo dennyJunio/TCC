@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 //Contexto
 import { Context } from '../../context/UserContext'
-import img from './img/imgLogo.png'
 import "./style.css"
 
 function NavBar() {

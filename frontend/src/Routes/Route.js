@@ -24,7 +24,9 @@ function Rotas() {
     return (
         <>
             {authenticated ? <NavBar /> : null}
-            <MarginNav>
+            <MarginNav
+                className={authenticated ? 'marginNav' : 'marginNavNone'}
+            >
                 <Routes>
                     {authenticated ? (
                         <>
