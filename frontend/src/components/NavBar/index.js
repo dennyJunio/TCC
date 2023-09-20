@@ -2,7 +2,8 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 //Contexto
 import { Context } from '../../context/UserContext'
-import "./style.css"
+import img from './img/imgLogo.png'
+import "./styleNavbar.css"
 
 function NavBar() {
     const { authenticated, logout } = useContext(Context)

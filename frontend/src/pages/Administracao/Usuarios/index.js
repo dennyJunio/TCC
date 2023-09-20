@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../../utils/api';
 import { useNavigate } from 'react-router-dom';
+import moment from 'moment';
 
 function ListaUser() {
   const [users, setUsers] = useState([]);
@@ -40,6 +41,7 @@ function ListaUser() {
             <th scope="col">#</th>
             <th scope="col">Usuário</th>
             <th scope="col">Nível</th>
+            <th scope="col">Criado em</th>
           </tr>
         </thead>
         <tbody>
@@ -50,7 +52,7 @@ function ListaUser() {
                 <Link to={`/users/${user.id}`}>{user.name}</Link>
               </td>
               <td>{user.nivel}</td>
-              <td>{user.createdAt}</td>
+              <td>{moment(user.createdAt).format('DD/MM/YYYY - HH:mm')}</td>
             </tr>
           ))}
         </tbody>
