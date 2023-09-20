@@ -57,19 +57,22 @@ function CriarChamado() {
           />
           <SelectGroup
             name="tipo"
+            label='Tipo'
             handleChange={handleChange}
           >
-            <option>Tipo</option>
-            <option value="0">Incident</option>
-            <option value="1">Requisição</option>
+            <option selected disabled>Tipo</option>
+            <option value="Incident">Incident</option>
+            <option value="Requisição">Requisição</option>
           </SelectGroup>
           <SelectGroup
             name="status"
+            label='Status'
             handleChange={handleChange}
           >
-            <option value="0">Novo</option>
-            <option value="1">Andamento</option>
-            <option value="2">Encerrado</option>
+            <option selected disabled>Status</option>
+            <option value="Novo">Novo</option>
+            <option value="Andamento">Andamento</option>
+            <option value="Encerrado">Encerrado</option>
           </SelectGroup>
           <button type='submit'>Registrar</button>
         </form>

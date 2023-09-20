@@ -13,11 +13,11 @@ const Chamados = db.define('Chamados', {
         allowNull: true
     },
     tipo: {
-        type: DataTypes.BOOLEAN,
+        type: DataTypes.STRING,
         allowNull: false
     },
     status: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false
     },
     fk_user: {
