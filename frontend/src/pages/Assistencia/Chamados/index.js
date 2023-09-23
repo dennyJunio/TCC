@@ -56,7 +56,8 @@ function ListaChamados() {
             <th scope="col">Descrição</th>
             <th scope="col">Tipo</th>
             <th scope="col">Status</th>
-            <th scope="col">Creado</th>
+            <th scope="col">Criado em</th>
+            <th scope="col">Ultima Atualização</th>
           </tr>
         </thead>
         <tbody>
@@ -70,6 +71,7 @@ function ListaChamados() {
               <td>{chamado.tipo}</td>
               <td>{chamado.status}</td>
               <td>{moment(chamado.createdAt).format('DD/MM/YYYY - HH:mm')}</td>
+              <td>{moment(chamado.updatedAt).format('DD/MM/YYYY - HH:mm')}</td>
             </tr>
           ))}
         </tbody>

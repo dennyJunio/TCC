@@ -1,0 +1,41 @@
+body{
+    background-color: #bdbaba;
+}
+
+.bodyChamadoCriar{
+
+}
+
+.formChamado{
+    width: 570px;
+    height: 470px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f7f7f7;
+    /* box-shadow: 2px 2px 20px rgb(87, 29, 221); */
+    border-radius: 10px;
+    align-items:flex-start;
+}
+
+.formChamado h5{
+    margin-top: 15px;
+    /* font-family: poppins; */
+    /* color: #fff; */
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.bodyChamadoCriar h2{
+    font-family: poppins;
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.inputChamado{
+margin-left: 2rem;
+}
+
+.descricao{
+    width: 100%;
+    height: 200px;
+}
