@@ -1,6 +1,6 @@
 //Login/index.js
 import React from 'react'
-import InputLogin from '../../../components/InputLogin'
+import InputGroup2 from '../../../components/InputGroup2'
 import { Link } from 'react-router-dom'
 import img from './img/SupMate_fundoClaro.png'
 import './styleLogin.css';
@@ -34,7 +34,7 @@ function Login() {
           <div class="login">
             <h5>Usuário</h5>
             <form class="input" onSubmit={handleSubmit}>
-              <InputLogin
+              <InputGroup2
                 label='name'
                 type='name'
                 name='name'
@@ -42,7 +42,7 @@ function Login() {
                 handleChange={handleChange}
               />
               <h5>Senha</h5>
-              <InputLogin
+              <InputGroup2
                 label='password'
                 type='password'
                 name='password'

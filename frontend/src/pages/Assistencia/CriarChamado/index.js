@@ -1,7 +1,7 @@
 //componente register 
 import React, { useState } from 'react'
 import api from '../../../utils/api'
-import InputChamados from '../../../components/InputChamados'
+import InputGroup2 from '../../../components/InputGroup2'
 import SelectGroup from '../../../components/SelectGroup'
 import "./styleCriarChamado.css"
 
@@ -38,28 +38,26 @@ function CriarChamado() {
   }
 
   return (
-    <div className='bodyChamadoCriar'>
+    <section className='bodyChamadoCriar'>
       <h2>Abrir Chamado</h2>
       <div className='formChamado'>
         <form className='inputChamado' onSubmit={handleSubmit}>
           <h5>Título</h5>
-          <InputChamados
+          <InputGroup2
             type='text'
-            label='titulo'
             placeholder='Adicione titulo'
             name='titulo'
             handleChange={handleChange}
           />
           <h5>Descrição</h5>
-          <InputChamados
+          <InputGroup2
             type='text'
-            label='Descrição'
             placeholder='....'
             name='descricao'
             handleChange={handleChange}
           />
 
-          <button type='submit'>Registrar</button>
+          <button className='registrar' type='submit'>Registrar</button>
         </form>
       </div>
 
@@ -87,7 +85,7 @@ function CriarChamado() {
           <option value="Cancelado">Cancelado</option>
         </SelectGroup>
       </div>
-    </div>
+    </section>
   )
 }
 
