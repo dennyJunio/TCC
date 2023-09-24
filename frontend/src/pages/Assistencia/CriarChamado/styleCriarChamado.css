@@ -6,10 +6,6 @@ body{
 
 }
 
-div{
-    display: inline-block;
-    box-sizing: border-box;
-}
 
 .formChamado{
     width: 570px;
