@@ -58,20 +58,26 @@ function ListaChamados() {
             <th scope="col">Status</th>
             <th scope="col">Criado em</th>
             <th scope="col">Ultima Atualização</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Excluir</th>
           </tr>
         </thead>
         <tbody>
           {chamados.map((chamado, index) => (
             <tr key={index}>
               <th scope="row">{chamado.id}</th>
-              <td>
-                <Link to={`/chamados/${chamado.id}`}>{chamado.titulo}</Link>
-              </td>
+              <td>{chamado.titulo}</td>
               <td>{chamado.descricao}</td>
               <td>{chamado.tipo}</td>
               <td>{chamado.status}</td>
               <td>{moment(chamado.createdAt).format('DD/MM/YYYY - HH:mm')}</td>
               <td>{moment(chamado.updatedAt).format('DD/MM/YYYY - HH:mm')}</td>
+              <td>
+                <Link to={`/chamados/${chamado.id}`}><i class="fa-solid fa-pen fa-lg" style={{color: '#496697', marginLeft: '0.5rem'}}></i></Link>
+              </td>
+              <td>
+                <Link to={`/chamados/${chamado.id}`}><i class="fa-solid fa-xmark fa-xl" style={{color: '#dd2c2c', marginLeft: '1.2rem'}}></i></Link>
+              </td>
             </tr>
           ))}
         </tbody>
