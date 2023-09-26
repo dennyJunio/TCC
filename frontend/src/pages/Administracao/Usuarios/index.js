@@ -48,11 +48,15 @@ function ListaUser() {
           {users.map((user, index) => (
             <tr key={index}>
               <th scope="row">{user.id}</th>
-              <td>
-                <Link to={`/users/${user.id}`}>{user.name}</Link>
-              </td>
+              <td>{user.name}</td>
               <td>{user.nivel}</td>
               <td>{moment(user.createdAt).format('DD/MM/YYYY - HH:mm')}</td>
+              <td>
+                <Link to={`/users/edit${user.id}`}><i class="fa-solid fa-pen fa-lg" style={{color: '#496697', marginLeft: '0.5rem'}}></i></Link>
+              </td>
+              <td>
+                <Link to={`/users/edit${user.id}`}><i class="fa-solid fa-xmark fa-xl" style={{color: '#dd2c2c', marginLeft: '1.2rem'}}></i></Link>
+              </td>
             </tr>
           ))}
         </tbody>
