@@ -42,6 +42,8 @@ function ListaUser() {
             <th scope="col">Usuário</th>
             <th scope="col">Nível</th>
             <th scope="col">Criado em</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Excluir</th>
           </tr>
         </thead>
         <tbody>
