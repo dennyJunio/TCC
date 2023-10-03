@@ -51,14 +51,14 @@ function NavBar() {
 
                 <li>
                     <div className="icon-link">
-                        <Link to='/'>
+                        <Link>
                             <i className="fa-solid fa-pen-to-square"></i>
                             <span className="link-name">Assistência</span>
                         </Link>
                         <i className="fas fa-caret-down arrow"></i>
                     </div>
                     <ul className="sub-menu">
-                        <li><Link to='/' className="link-name">Assistência</Link></li>
+                        <li><Link className="link-name">Assistência</Link></li>
                         <li><Link to='/chamados/create'>Criar Chamado</Link></li>
                         <li><Link to='/chamados'>Chamados</Link></li>
                     </ul>
@@ -67,14 +67,14 @@ function NavBar() {
                     <>
                         <li>
                             <div className="icon-link">
-                                <Link to='/'>
+                                <Link>
                                 <i class="fa-solid fa-shield-halved"></i>
                                     <span className="link-name">Administração</span>
                                 </Link>
                                 <i className="fas fa-caret-down arrow"></i>
                             </div>
                             <ul className="sub-menu">
-                                <li><Link to='/' className="link-name">Administração</Link></li>
+                                <li><Link className="link-name">Administração</Link></li>
                                 <li><Link to='/administracao'>Usuarios</Link></li>
                             </ul>
                         </li>                   
