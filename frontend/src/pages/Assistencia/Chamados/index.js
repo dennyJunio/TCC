@@ -58,20 +58,20 @@ function ListaChamados() {
             <th scope="col">Status</th>
             <th scope="col">Criado em</th>
             <th scope="col">Ultima Atualização</th>
+
+            <th scope="col">Editar</th>
+            <th scope="col">Excluir</th>
           </tr>
         </thead>
         <tbody>
           {chamados.map((chamado, index) => (
             <tr key={index}>
               <th scope="row">{chamado.id}</th>
-              <td>
-                <Link to={`/chamados/${chamado.id}`}>{chamado.titulo}</Link>
-              </td>
+              <td>{chamado.titulo}</td>
               <td>{chamado.descricao}</td>
               <td>{chamado.tipo}</td>
               <td>{chamado.status}</td>
               <td>{moment(chamado.createdAt).format('DD/MM/YYYY - HH:mm')}</td>
-              <td>{moment(chamado.updatedAt).format('DD/MM/YYYY - HH:mm')}</td>
             </tr>
           ))}
         </tbody>
