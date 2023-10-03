@@ -1,11 +1,49 @@
-body{
+/* body{
     background-color: #bdbaba;
-}
+} */
 
 .bodyChamadoCriar{
-
+    margin-top: 5rem;
+    font-family: poppins;
+    margin-left: 3rem;
+    display: flex;
 }
 
+.options{
+    /* background-size: 70rem; */
+    width: 570px;
+    height: 470px;
+    margin-left: 5rem;
+    padding: 3rem;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+}
+
+.options .OpTipo{
+    font-family: poppins;
+    width: 10rem;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.options .OpStatus{
+    font-family: poppins;
+    width: 10rem;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.OpStatus h5{
+    font-family: poppins;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.OpTipo h5{
+    font-family: poppins;
+    font-size: 20px;
+    font-weight: 200;
+}
 
 .formChamado{
     width: 570px;
@@ -31,13 +69,14 @@ body{
 }
 
 .bodyChamadoCriar h2{
+    padding: 1rem;
     font-family: poppins;
     font-size: 30px;
     font-weight: 300;
 }
 
 .inputChamado{
-margin-left: 2rem;
+margin-left: 3rem;
 }
 
 .descricao{
@@ -46,7 +85,8 @@ margin-left: 2rem;
 }
 .registrar{
     background-color: rgb(168, 209, 168);
-    margin-top: 5%;
+    padding: 3px;
+    margin-top: 10rem;
     border: none;
     outline: none;
     border-radius: 5px;
