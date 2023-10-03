@@ -1,4 +1,4 @@
-function InputLogin({placeholder, type, name, handleChange, value }) {
+function InputGroup2({placeholder, type, name, handleChange, value }) {
     return (
         <div className='mb-3 input-group'>
             <input
@@ -14,4 +14,4 @@ function InputLogin({placeholder, type, name, handleChange, value }) {
     )
 }
 
-export default InputLogin
+export default InputGroup2
