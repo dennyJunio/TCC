@@ -84,7 +84,8 @@ margin-left: 3rem;
     height: 200px;
 }
 .registrar{
-    background-color: rgb(168, 209, 168);
+    background-color: #11101d;
+    color: white;
     padding: 3px;
     margin-top: 10rem;
     border: none;
