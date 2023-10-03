@@ -11,6 +11,7 @@ import Register from "../pages/User/Register"
 
 // Administracao
 import ListaUser from '../pages/Administracao/Usuarios'
+import Profile from '../pages/Administracao/Profile'
 
 //Assistencia
 import Dashboard from "../pages/Assistencia/Dashboard"
@@ -33,6 +34,7 @@ function Rotas() {
                             <Route exact path="/dashboard" element={<Dashboard />} />
                             {/* administracao */}
                             <Route exact path="/administracao" element={<ListaUser   />} />
+                            <Route exact path="/users/:id" element={<Profile   />} />
 
                             {/* assistencia */}
                             <Route exact path="/chamados/create" element={<CriarChamado />} />
