@@ -1,4 +1,4 @@
-function InputGroup2({placeholder, type, name, handleChange, value }) {
+function InputGroup2({placeholder, type, name, handleChange, value, style }) {
     return (
         <div className='mb-3 input-group'>
             <input
@@ -9,6 +9,7 @@ function InputGroup2({placeholder, type, name, handleChange, value }) {
                 // toda vez que for lidar com eventos utilizar handle
                 onChange={handleChange}
                 value={value}
+                style={style}
             />
         </div>
     )

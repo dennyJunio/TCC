@@ -48,7 +48,7 @@ function CriarChamado() {
             placeholder='Adicione titulo'
             name='titulo'
             handleChange={handleChange}
-            style={{ width: '15rem' }}
+            style={{ width: '30rem' }}
           />
           <h5>Descrição</h5>
           <InputGroup2
@@ -56,10 +56,9 @@ function CriarChamado() {
             placeholder='....'
             name='descricao'
             handleChange={handleChange}
-            style={{ width: '10rem', heigh: '100rem' }}
+            style={{ width: '10rem', heigh: '1000rem' }}
           />
 
-          <button className='registrar' type='submit' style={{ width: '10rem ' }}>Registrar</button>
         </form>
       </div>
 
@@ -91,6 +90,7 @@ function CriarChamado() {
           </SelectGroup2>
         </div>
 
+      <button className='registrar' type='submit' style={{ width: '10rem ' }}>Registrar</button>
       </div>
     </section>
   )

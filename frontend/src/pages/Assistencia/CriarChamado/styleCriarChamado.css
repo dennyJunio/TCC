@@ -5,14 +5,14 @@
 .bodyChamadoCriar{
     margin-top: 5rem;
     font-family: poppins;
-    margin-left: 3rem;
+    margin-left: 5%;
     display: flex;
 }
 
 .options{
     /* background-size: 70rem; */
-    width: 570px;
-    height: 470px;
+    width: 400px;
+    height: 35rem;
     margin-left: 5rem;
     padding: 3rem;
     border-radius: 10px;
@@ -47,7 +47,7 @@
 
 .formChamado{
     width: 570px;
-    height: 470px;
+    height: 35rem;
     display: flex;
     flex-direction: column;
     background-color: #f7f7f7;
@@ -87,7 +87,7 @@ margin-left: 3rem;
     background-color: #11101d;
     color: white;
     padding: 3px;
-    margin-top: 10rem;
+    margin-top: 15rem;
     border: none;
     outline: none;
     border-radius: 5px;
@@ -97,7 +97,3 @@ margin-left: 3rem;
     align-items: center;
 }
 
-.registrar:hover{
-    transition: 1s;
-    background-color: rgb(109, 190, 109);
-}
