@@ -63,36 +63,38 @@ function CriarChamado() {
       </div>
 
       <div className='options'>
-        <section className="OpTipo">
-          <h5>Tipo</h5>
-          <SelectGroup2
-            name="tipo"
-            label='Tipo'
-            handleChange={handleChange}
-          >
-            <option class="form-select" selected disabled>Tipo</option>
-            <option value="Incident">Incident</option>
-            <option value="Requisição">Requisição</option>
-          </SelectGroup2>
-        </section>
-        <div className='OpStatus'>
-          <h5>Status</h5>
-          <SelectGroup2
-            name="status"
-            label='Status'
-            handleChange={handleChange}
-          >
-            <option selected disabled>Status</option>
-            <option value="Novo">Novo</option>
-            <option value="Andamento">Andamento</option>
-            <option value="Solucionado">Solucionado</option>
-            <option value="Cancelado">Cancelado</option>
-          </SelectGroup2>
-        </div>
+        <form className='inputChamado' onSubmit={handleSubmit}>
+          <div className="OpTipo">
+            <h5>Tipo</h5>
+            <SelectGroup2
+              name="tipo"
+              label='Tipo'
+              handleChange={handleChange}
+            >
+              <option class="form-select" selected disabled>Tipo</option>
+              <option value="Incident">Incident</option>
+              <option value="Requisição">Requisição</option>
+            </SelectGroup2>
+          </div>
+          <div className='OpStatus'>
+            <h5>Status</h5>
+            <SelectGroup2
+              name="status"
+              label='Status'
+              handleChange={handleChange}
+            >
+              <option selected disabled>Status</option>
+              <option value="Novo">Novo</option>
+              <option value="Andamento">Andamento</option>
+              <option value="Solucionado">Solucionado</option>
+              <option value="Cancelado">Cancelado</option>
+            </SelectGroup2>
+            <button className='registrar' type='submit' style={{ width: '10rem ' }}>Registrar</button>
+          </div>
+        </form>
 
-      <button className='registrar' type='submit' style={{ width: '10rem ' }}>Registrar</button>
       </div>
-    </section>
+    </section >
   )
 }
 
