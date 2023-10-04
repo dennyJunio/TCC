@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import api from '../../../utils/api';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
+import "./style.css"
 
 function ListaUser() {
   const [users, setUsers] = useState([]);
@@ -76,7 +77,9 @@ function ListaUser() {
                 <Link to={`/users/edit${user.id}`}><i class="fa-solid fa-pen fa-lg" style={{ color: '#496697', marginLeft: '0.5rem' }}></i></Link>
               </td>
               <td>
-              <i class="fa-solid fa-xmark fa-xl" style={{ color: '#dd2c2c', marginLeft: '1.2rem' }}><button onClick={() => { removeUser(user.id) }} ></button></i>
+                <button className="invisible-button" onClick={() => { removeUser(user.id) }}>
+                  <i className="fa-solid fa-xmark fa-xl" style={{ color: '#dd2c2c' }}></i>
+                </button>
               </td>
             </tr>
           ))}
