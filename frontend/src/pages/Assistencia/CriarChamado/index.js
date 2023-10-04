@@ -1,8 +1,9 @@
 //componente register 
 import React, { useState } from 'react'
 import api from '../../../utils/api'
-import InputGroup from '../../../components/InputGroup'
-import SelectGroup from '../../../components/SelectGroup'
+import InputGroup2 from '../../../components/InputGroup2'
+import SelectGroup2 from '../../../components/SelectGroup2'
+import "./styleCriarChamado.css"
 
 function CriarChamado() {
   //a logica para enviar um formulario, ou para fazer qualquer coisa diferenciada em uma pagina fica nesse local
@@ -37,48 +38,63 @@ function CriarChamado() {
   }
 
   return (
-    <div>
-      <h2>Abrir Chamado</h2>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <InputGroup
+    <section className='bodyChamadoCriar'>
+      <div className='formChamado'>
+        <h2>Abrir Chamado</h2>
+        <form className='inputChamado' onSubmit={handleSubmit}>
+          <h5>Título</h5>
+          <InputGroup2
             type='text'
-            label='titulo'
             placeholder='Adicione titulo'
             name='titulo'
             handleChange={handleChange}
+            style={{ width: '30rem' }}
           />
-          <InputGroup
+          <h5>Descrição</h5>
+          <InputGroup2
             type='text'
-            label='Descrição'
             placeholder='....'
             name='descricao'
             handleChange={handleChange}
+            style={{ width: '10rem', heigh: '1000rem' }}
           />
-          <SelectGroup
-            name="tipo"
-            label='Tipo'
-            handleChange={handleChange}
-          >
-            <option selected disabled>Tipo</option>
-            <option value="Incident">Incident</option>
-            <option value="Requisição">Requisição</option>
-          </SelectGroup>
-          <SelectGroup
-            name="status"
-            label='Status'
-            handleChange={handleChange}
-          >
-            <option selected disabled>Status</option>
-            <option value="Novo">Novo</option>
-            <option value="Andamento">Andamento</option>
-            <option value="Solucionado">Solucionado</option>
-            <option value="Cancelado">Cancelado</option>
-          </SelectGroup>
-          <button type='submit'>Registrar</button>
+
         </form>
       </div>
-    </div>
+
+      <div className='options'>
+        <form className='inputChamado' onSubmit={handleSubmit}>
+          <div className="OpTipo">
+            <h5>Tipo</h5>
+            <SelectGroup2
+              name="tipo"
+              label='Tipo'
+              handleChange={handleChange}
+            >
+              <option class="form-select" selected disabled>Tipo</option>
+              <option value="Incident">Incident</option>
+              <option value="Requisição">Requisição</option>
+            </SelectGroup2>
+          </div>
+          <div className='OpStatus'>
+            <h5>Status</h5>
+            <SelectGroup2
+              name="status"
+              label='Status'
+              handleChange={handleChange}
+            >
+              <option selected disabled>Status</option>
+              <option value="Novo">Novo</option>
+              <option value="Andamento">Andamento</option>
+              <option value="Solucionado">Solucionado</option>
+              <option value="Cancelado">Cancelado</option>
+            </SelectGroup2>
+            <button className='registrar' type='submit' style={{ width: '10rem ' }}>Registrar</button>
+          </div>
+        </form>
+
+      </div>
+    </section >
   )
 }
 
