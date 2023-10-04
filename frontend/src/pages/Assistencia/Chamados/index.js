@@ -21,16 +21,16 @@ function ListaChamados() {
           Authorization: `Bearer ${JSON.parse(token)}`
         }
       })
-      .then((response) => {
-        console.log('Response:', response);
-        setUser(response.data);
-      }) 
-      .catch((error) => {
-        console.error('API Error:', error.response); 
-      });
+        .then((response) => {
+          console.log('Response:', response);
+          setUser(response.data);
+        })
+        .catch((error) => {
+          console.error('API Error:', error.response);
+        });
     }
   }, [token]);  // Added token as a dependency
-  
+
   useEffect(() => {
     // Somente executa o useEffect se o user.nivel for igual a 0
     if (user.nivel === 0) {
@@ -42,11 +42,11 @@ function ListaChamados() {
         setChamados(response.data.chamados)
       })
     }
-  }, [user.nivel]);  
-  
+  }, [user.nivel]);
 
-  return ( 
-    <div>   
+
+  return (
+    <div>
       <h2>Lista de Chamados</h2>
       <table className="table table-striped">
         <thead>
@@ -69,17 +69,23 @@ function ListaChamados() {
               <td>{chamado.titulo}</td>
               <td>{chamado.descricao}</td>
               <td>{chamado.tipo}</td>
-              <td>{chamado.status}</td>
+              <td style={{
+                backgroundColor: chamado.status === 'Novo' ? '#73FF70'
+                  : chamado.status === 'Cancelado' ? '#FF7369' 
+                  : chamado.status === 'Andamento' ? '#FFE987' 
+                  : chamado.status === 'Solucionado' ? '#FFF8DE' 
+                  : 'inherit'
+              }}>{chamado.status}</td>
               <td>{moment(chamado.createdAt).format('DD/MM/YYYY - HH:mm')}</td>
               <td>{moment(chamado.updateAt).format('DD/MM/YYYY - HH:mm')}</td>
               <td>
-                <Link to={`/chamados/${chamado.id}`}><i class="fa-solid fa-pen fa-lg" style={{color: '#496697', marginLeft: '0.5rem'}}></i></Link>
+                <Link to={`/chamados/${chamado.id}`}><i class="fa-solid fa-pen fa-lg" style={{ color: '#496697', marginLeft: '0.5rem' }}></i></Link>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-    </div> 
+    </div>
   );
 }
 

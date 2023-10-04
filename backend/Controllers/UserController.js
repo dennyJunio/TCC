@@ -131,7 +131,6 @@ module.exports = class UserController {
 
     static async editUser(req, res) {
         const id = req.params.id
-
         //checar se o usuario exite
         const token = getToken(req)
         const user = await getUserById(token)
@@ -197,6 +196,35 @@ module.exports = class UserController {
             res.status(500).json({ message: error.message })
         }
 
+    }
+
+    static async removeUser(req, res) {
+        const id = req.params.id
+
+        if (isNaN(id)) {
+            res.status(422).json({ message: 'ID Inválido' })
+            return
+        }
+
+        const user = await User.findByPk(id)
+
+        //validando se o ID é valido
+        if (!user) {
+            res.status(422).json({ message: 'User não existe' })
+            return
+        }
+
+        //checar se o usuario logado registrou o pet
+        // let currentUser
+        // const token = getToken(req)
+        // const decoded = jwt.verify(token, 'nossosecret')
+        // currentUser = await User.findByPk(decoded.id)
+        // currentUser.password = undefined
+        // const currentUserId = currentUser.id
+
+        await User.destroy({ where: { id: id } })
+
+        res.status(200).json({ message: 'User removido com sucesso' })
     }
 
     static async getAll(req, res) {
