@@ -97,7 +97,7 @@ function EditarChamado() {
                         <option value="Solucionado">Solucionado</option>
                         <option value="Cancelado">Cancelado</option>
                     </SelectGroup>
-                    <button type='submit'>Registrar</button>
+                    <button type='submit'>Concluir</button>
                 </form>
             </div>
         </div>

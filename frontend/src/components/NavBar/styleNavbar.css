@@ -322,7 +322,8 @@
 }
 
 .exit{
-  margin-top: 20rem;
+  position: absolute;
+  margin-top: 17rem;
   display: flex;
 }
 
