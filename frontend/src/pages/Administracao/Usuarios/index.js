@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import api from '../../../utils/api';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
-import "./style.css"
+import "./styleUsuarios.css"
 
 function ListaUser() {
   const [users, setUsers] = useState([]);
