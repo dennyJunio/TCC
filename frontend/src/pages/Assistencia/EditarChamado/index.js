@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import api from '../../../utils/api'
 import { useNavigate } from 'react-router-dom'
-import InputGroup from '../../../components/InputGroup'
-import SelectGroup from '../../../components/SelectGroup'
+import InputGroup2 from '../../../components/InputGroup2'
+import SelectGroup2 from '../../../components/SelectGroup2'
+import './styleEditar.css'
 
 function EditarChamado() {
     const [chamados, setChamados] = useState({});
@@ -57,50 +58,54 @@ function EditarChamado() {
     }
 
     return (
-        <div>
-            <h2>Editar Chamado</h2>
-            <div>
-                <form onSubmit={handleSubmit}>
-                    <InputGroup
-                        type='text'
-                        label='titulo'
-                        placeholder='....'
-                        name='titulo'
-                        handleChange={handleChange}
-                    />
-                    <InputGroup
-                        type='text'
-                        label='Descrição'
-                        placeholder='....'
-                        name='descricao'
-                        handleChange={handleChange}
-                    />
-                    <SelectGroup
-                        name="tipo"
-                        label='Tipo'
-                        handleChange={handleChange}
-                        value={chamados.tipo}
-                    >
-                        <option selected disabled>Tipo</option>
-                        <option value="Incident">Incident</option>
-                        <option value="Requisição">Requisição</option>
-                    </SelectGroup>
-                    <SelectGroup
-                        name="status"
-                        label='Status'
-                        handleChange={handleChange}
-                        value={chamados.status}
-                    >
-                        <option selected disabled>Status</option>
-                        <option value="Novo">Novo</option>
-                        <option value="Andamento">Andamento</option>
-                        <option value="Solucionado">Solucionado</option>
-                        <option value="Cancelado">Cancelado</option>
-                    </SelectGroup>
-                    <button type='submit'>Concluir</button>
-                </form>
+        <section className='bodyEditarChamado'>
+            <div className='formEditar'>
+                <h2>Editar Chamado</h2>
+                <div>
+                    <form onSubmit={handleSubmit}>
+                        <InputGroup2
+                            type='text'
+                            label='titulo'
+                            placeholder='....'
+                            name='titulo'
+                            handleChange={handleChange}
+                        />
+                        <InputGroup2
+                            type='text'
+                            label='Descrição'
+                            placeholder='....'
+                            name='descricao'
+                            handleChange={handleChange}
+                        />
+                    <form className='formSelect' onSubmit={handleSubmit}>
+                        <SelectGroup2
+                            name="tipo"
+                            label='Tipo'
+                            handleChange={handleChange}
+                            value={chamados.tipo}
+                            >
+                            <option selected disabled>Tipo</option>
+                            <option value="Incident">Incident</option>
+                            <option value="Requisição">Requisição</option>
+                        </SelectGroup2>
+                        <SelectGroup2
+                            name="status"
+                            label='Status'
+                            handleChange={handleChange}
+                            value={chamados.status}
+                            >
+                            <option selected disabled>Status</option>
+                            <option value="Novo">Novo</option>
+                            <option value="Andamento">Andamento</option>
+                            <option value="Solucionado">Solucionado</option>
+                            <option value="Cancelado">Cancelado</option>
+                        </SelectGroup2>
+                        <button className='buttonEditar' type='submit' style={{ width: '10rem ' }}>Concluir</button>
+                    </form>
+                            </form>
+                </div>
             </div>
-        </div>
+        </section>
     )
 }
 
