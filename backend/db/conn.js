@@ -2,7 +2,7 @@
 
 const { Sequelize } = require('sequelize')
 //troca a senha quando tiver no meu PC
-const sequelize = new Sequelize('supMate', 'root', '', {
+const sequelize = new Sequelize('supMate', 'root', 'sucesso', {
     host: 'localhost',
     dialect: 'mysql',
 })
