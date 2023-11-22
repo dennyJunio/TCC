@@ -61,8 +61,10 @@ function EditarChamado() {
         <section className='bodyEditarChamado'>
             <div className='formEditar'>
                 <h2>Editar Chamado</h2>
-                <div>
-                    <form onSubmit={handleSubmit}>
+
+                <form onSubmit={handleSubmit}>
+                    <div className='inputsTexto'>
+                        <h4>Titulo</h4>
                         <InputGroup2
                             type='text'
                             label='titulo'
@@ -70,6 +72,8 @@ function EditarChamado() {
                             name='titulo'
                             handleChange={handleChange}
                         />
+
+                        <h4>Descrição</h4>
                         <InputGroup2
                             type='text'
                             label='Descrição'
@@ -77,13 +81,15 @@ function EditarChamado() {
                             name='descricao'
                             handleChange={handleChange}
                         />
+
+                    </div>
                     <form className='formSelect' onSubmit={handleSubmit}>
                         <SelectGroup2
                             name="tipo"
                             label='Tipo'
                             handleChange={handleChange}
                             value={chamados.tipo}
-                            >
+                        >
                             <option selected disabled>Tipo</option>
                             <option value="Incident">Incident</option>
                             <option value="Requisição">Requisição</option>
@@ -93,7 +99,7 @@ function EditarChamado() {
                             label='Status'
                             handleChange={handleChange}
                             value={chamados.status}
-                            >
+                        >
                             <option selected disabled>Status</option>
                             <option value="Novo">Novo</option>
                             <option value="Andamento">Andamento</option>
@@ -102,8 +108,8 @@ function EditarChamado() {
                         </SelectGroup2>
                         <button className='buttonEditar' type='submit' style={{ width: '10rem ' }}>Concluir</button>
                     </form>
-                            </form>
-                </div>
+                </form>
+
             </div>
         </section>
     )
