@@ -77,7 +77,7 @@ function ListaChamados() {
                   : 'inherit'
               }}>{chamado.status}</td>
               <td>{moment(chamado.createdAt).format('DD/MM/YYYY - HH:mm')}</td>
-              <td>{moment(chamado.updateAt).format('DD/MM/YYYY - HH:mm')}</td>
+              <td>{moment(chamado.updatedAt).format('DD/MM/YYYY - HH:mm')}</td>
               <td>
                 <Link to={`/chamados/${chamado.id}`}><i class="fa-solid fa-pen fa-lg" style={{ color: '#496697', marginLeft: '0.5rem' }}></i></Link>
               </td>

@@ -151,7 +151,7 @@ module.exports = class UserController {
         }
         const userExists = await User.findOne({ where: { name: name } })
         if (user.name !== name && userExists) {
-            res.status(422).json({ message: 'Por favor utilize outro namo de Usuario' })
+            res.status(422).json({ message: 'Por favor utilize outro name de Usuario' })
             return
         }
         if (!nivel) {
