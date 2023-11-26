@@ -1,13 +1,14 @@
 //componente register 
 import React from 'react'
-import InputGroup from '../../../components/InputGroup'
+import InputGroup2 from '../../../components/InputGroup2'
 
 //hooks
 import { useContext, useState } from 'react'
 
 //context
 import { Context } from '../../../context/UserContext'
-import SelectGroup from '../../../components/SelectGroup'
+import SelectGroup2 from '../../../components/SelectGroup2'
+import "./styleRegister.css"
 
 function Register() {
   //a logica para enviar um formulario, ou para fazer qualquer coisa diferenciada em uma pagina fica nesse local
@@ -25,32 +26,38 @@ function Register() {
   }
 
   return (
-    <div>
+    <section className='body1'>
+    <div className='bodyUsuarioCriar'>
+      <section className='formUsuario'>
       <h2>Registrar Usuario</h2>
       <div>
-        <form onSubmit={handleSubmit}>
-          <InputGroup
+        <form className='inputUsuario' onSubmit={handleSubmit}>
+          <h5>Digite seu nome</h5>
+          <InputGroup2
             type='text'
             label='Digite seu nome'
-            placeholder='Seu nome aqui'
+            placeholder='Digite nome aqui'
             name='name'
             handleChange={handleChange}
           />
-          <InputGroup
+          <h5>Digite sua senha</h5>
+          <InputGroup2
             type='password'
             label='Digite sua senha'
             placeholder='Digite sua senha'
             name='password'
             handleChange={handleChange}
           />
-          <InputGroup
+          <h5>Confirme sua senha</h5>
+          <InputGroup2
             type='password'
             label='Confirme sua senha'
             placeholder='Confirme sua senha'
             name='confirmpassword'
             handleChange={handleChange}
           />
-          <SelectGroup
+          <h5>Tipo de Usuario</h5>          
+          <SelectGroup2
             name="nivel"
             label="Tipo de Usuario"
             handleChange={handleChange}
@@ -58,11 +65,13 @@ function Register() {
             <option selected disabled>Nivel</option>
             <option value="0">Admin</option>
             <option value="1">Usuario</option>
-          </SelectGroup>
-          <button type='submit'>Registrar</button>
+          </SelectGroup2>
+          <button className='registrarUsiario' type='submit'>Registrar</button>
         </form>
       </div>
+      </section>
     </div>
+    </section>
   )
 }
 
