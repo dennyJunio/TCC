@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import api from '../../../utils/api'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import InputGroup from '../../../components/InputGroup'
 import SelectGroup from '../../../components/SelectGroup'
 
 function EditarChamado() {
-    const [chamados, setChamados] = useState({});
+    const { id } = useParams(); //pega o id da url
+    const [editchamados, setEditChamados] = useState({});
+    const [user, setUser] = useState({});
     const [token, setToken] = useState(localStorage.getItem('token') || '');
     const navigate = useNavigate();
 
@@ -19,21 +21,15 @@ function EditarChamado() {
                     Authorization: `Bearer ${JSON.parse(token)}`
                 }
             }).then((response) => {
-                setChamados(response.data);
-            }).catch(error => {
-                console.error('Erro ao verificar usuário:', error);
-                // Pode redirecionar para a página de login aqui se o token for inválido ou expirou.
-                navigate('/login');
+                setUser(response.data);
+            
             });
+            
         }
     }, [token, navigate]);
 
-    function handleChange(evento) {
-        const { name, value } = evento.target;
-        setChamados(prevChamados => ({
-            ...prevChamados,
-            [name]: value
-        }));
+    function handleChange(e) {
+        setEditChamados({ ...editchamados, [e.target.name]: e.target.value });
     }
 
     async function handleSubmit(e) {
@@ -41,10 +37,10 @@ function EditarChamado() {
 
         const formData = new FormData();
 
-        Object.keys(chamados).forEach((key) => formData.append(key, chamados[key]));
+        Object.keys(editchamados).forEach((key) => formData.append(key, editchamados[key]));
 
         try {
-            const response = await api.patch(`chamados/editar/${chamados.id}`, formData, {
+            const response = await api.patch(`chamados/editar/${id}`, formData, {
                 headers: {
                     Authorization: `Bearer ${JSON.parse(token)}`,
                     'Content-Type': 'application/json'
@@ -79,7 +75,7 @@ function EditarChamado() {
                         name="tipo"
                         label='Tipo'
                         handleChange={handleChange}
-                        value={chamados.tipo}
+                        value={editchamados.tipo}
                     >
                         <option selected disabled>Tipo</option>
                         <option value="Incident">Incident</option>
@@ -89,7 +85,7 @@ function EditarChamado() {
                         name="status"
                         label='Status'
                         handleChange={handleChange}
-                        value={chamados.status}
+                        value={editchamados.status}
                     >
                         <option selected disabled>Status</option>
                         <option value="Novo">Novo</option>
