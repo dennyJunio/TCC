@@ -34,7 +34,7 @@ function Register() {
             <h5>Digite o nome</h5>
             <InputGroup2
               type='text'
-              label='Digite seu nome'
+              label='Digite o nome'
               placeholder='Nome '
               name='name'
               handleChange={handleChange}
@@ -42,7 +42,7 @@ function Register() {
             <h5>Digite a senha</h5>
             <InputGroup2
               type='password'
-              label='Digite sua senha'
+              label='Digite a senha'
               placeholder='Senha'
               name='password'
               handleChange={handleChange}
@@ -50,7 +50,7 @@ function Register() {
             <h5>Confirme a senha</h5>
             <InputGroup2
               type='password'
-              label='Confirme sua senha'
+              label='Confirme a senha'
               placeholder='Confirme Senha'
               name='confirmpassword'
               handleChange={handleChange}
