@@ -75,7 +75,8 @@ function NavBar() {
                             </div>
                             <ul className="sub-menu">
                                 <li><Link className="link-name">Administração</Link></li>
-                                <li><Link to='/administracao'>Usuarios</Link></li>
+                                <li><Link to='/administracao'>Usuários</Link></li>
+                                <li><Link to='/register'>Registrar Usuário</Link></li>
                             </ul>
                         </li>                   
                     </>
