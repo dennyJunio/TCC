@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import api from '../../../utils/api'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import SelectGroup from '../../../components/SelectGroup'
 import InputGroup from '../../../components/InputGroup'
 
 function Profile() {
+  const { id } = useParams();
   const [user, setUser] = useState({})
+  const [userEdit, setUserEdit] = useState({})
   const [preview, setPreview] = useState()
   const [token, setToken] = useState(localStorage.getItem('token') || '');
   const navigate = useNavigate()
@@ -20,22 +22,22 @@ function Profile() {
           Authorization: `Bearer ${JSON.parse(token)}`
         }
       }).then((response) => {
-        setUser(response.data)
+        setUserEdit(response.data)
       })
     }
   }, [token, navigate])
 
   function handleChange(e) {
-    setUser({ ...user, [e.target.name]: e.target.value })
+    setUserEdit({ ...userEdit, [e.target.name]: e.target.value })
   }
 
   //trabalhando com a imagem
-  const [image, setImage] = useState(null)
+  // const [image, setImage] = useState(null)
 
-  function onFileChange(e) {
-    setPreview(URL.createObjectURL(e.target.files[0]))
-    setImage(e.target.files[0])
-  }
+  // function onFileChange(e) {
+  //   setPreview(URL.createObjectURL(e.target.files[0]))
+  //   setImage(e.target.files[0])
+  // }
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -48,9 +50,9 @@ function Profile() {
     // }
 
     //adiciona as outras propriedades do usuario ao formData
-    await Object.keys(user).forEach((key) => formData.append(key, user[key]))
+     Object.keys(userEdit).forEach((key) => formData.append(key, userEdit[key]))
 
-    const data = await api.patch(`users/edit/${user.id}`, formData, {
+    const data = await api.patch(`users/edit/${id}`, formData, {
       headers: {
         Authorization: `Bearer ${JSON.parse(token)}`,
         'Content-Type': 'application/json'
