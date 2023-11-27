@@ -51,7 +51,7 @@ function CriarChamado() {
             style={{ width: '30rem' }}
           />
           <h5>Descrição</h5>
-          <InputGroup2
+          <InputGroup2 
             type='text'
             placeholder='....'
             name='descricao'

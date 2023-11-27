@@ -32,6 +32,7 @@ function Rotas() {
                     {authenticated ? (
                         <>
                             <Route exact path="/dashboard" element={<Dashboard />} />
+                            
                             {/* administracao */}
                             <Route exact path="/administracao" element={<ListaUser   />} />
                             <Route exact path="/users/:id" element={<Profile   />} />

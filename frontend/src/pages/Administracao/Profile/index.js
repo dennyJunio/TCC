@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import api from '../../../utils/api'
 import { useNavigate, useParams } from 'react-router-dom'
-import SelectGroup from '../../../components/SelectGroup'
-import InputGroup from '../../../components/InputGroup'
+import SelectGroup from '../../../components/SelectGroup2'
+import InputGroup from '../../../components/InputGroup2'
 
 function Profile() {
   const { id } = useParams();
@@ -50,7 +50,7 @@ function Profile() {
     // }
 
     //adiciona as outras propriedades do usuario ao formData
-     Object.keys(userEdit).forEach((key) => formData.append(key, userEdit[key]))
+    Object.keys(userEdit).forEach((key) => formData.append(key, userEdit[key]))
 
     const data = await api.patch(`users/edit/${id}`, formData, {
       headers: {
@@ -68,54 +68,58 @@ function Profile() {
   }
 
   return (
-    <div>
-      <h2>Perfil</h2>
-      {/* <img
+    <div className='bodyUsuarioCriar'>
+      <section className='formUsuario'>
+        <h2>Editar Perfil</h2>
+        {/* <img
         style={{ height: '200px', width: '200px' }}
         className='rounded-circle m-3'
         src={'http://localhost:5000/image/users/' + user.image}
         alt='Foto de perfil'
       /> */}
-      <form onSubmit={handleSubmit}>
-        {/* <InputGroup
+        <div>
+          <form className='inputUsuario' onSubmit={handleSubmit}>
+            {/* <InputGroup
           label='Imagem'
           type='file'
           name='image'
           handleChange={onFileChange}
         /> */}
-        <InputGroup
-          type='text'
-          label='Nome'
-          name='name'
-          placeholder='Digite seu nome'
-          handleChange={handleChange}
-        />
-        <InputGroup
-          type='password'
-          label='password'
-          name='password'
-          placeholder='Digite seu password'
-          handleChange={handleChange}
-        />
-        <InputGroup
-          type='password'
-          label='password'
-          name='confirmpassword'
-          placeholder='Digite seu password'
-          handleChange={handleChange}
-        />
-        <SelectGroup
-          name="nivel"
-          label="Tipo de Usuario"
-          handleChange={handleChange}
-        >
-          <option selected disabled>Nivel</option>
-          <option value="0">Admin</option>
-          <option value="1">Usuario</option>
-        </SelectGroup>
-        <button type='submit'>Atualizar</button>
-      </form>
-    </div>
+            <InputGroup
+              type='text'
+              label='Digite o nome'
+              placeholder='Nome '
+              name='name'
+              handleChange={handleChange}
+            />
+            <InputGroup
+              type='password'
+              label='Digite a senha'
+              placeholder='Senha'
+              name='password'
+              handleChange={handleChange}
+            />
+            <InputGroup
+              type='password'
+              label='Confirme a senha'
+              placeholder='Confirme Senha'
+              name='confirmpassword'
+              handleChange={handleChange}
+            />
+            <SelectGroup
+              name="nivel"
+              label="Tipo de Usuario"
+              handleChange={handleChange}
+            >
+              <option selected disabled>Nivel</option>
+              <option value="0">Admin</option>
+              <option value="1">Usuario</option>
+            </SelectGroup>
+            <button className='registrarUsiario' type='submit'>Atualizar</button>
+          </form>
+        </div>
+      </section>
+    </div >
   )
 }
 

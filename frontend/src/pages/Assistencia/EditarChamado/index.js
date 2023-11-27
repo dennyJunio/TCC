@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import api from '../../../utils/api'
 import { useNavigate, useParams } from 'react-router-dom'
-import InputGroup from '../../../components/InputGroup'
-import SelectGroup from '../../../components/SelectGroup'
+import InputGroup from '../../../components/InputGroup2'
+import SelectGroup from '../../../components/SelectGroup2'
 
 function EditarChamado() {
     const { id } = useParams(); //pega o id da url
@@ -22,9 +22,9 @@ function EditarChamado() {
                 }
             }).then((response) => {
                 setUser(response.data);
-            
+
             });
-            
+
         }
     }, [token, navigate]);
 
@@ -53,17 +53,20 @@ function EditarChamado() {
     }
 
     return (
-        <div>
-            <h2>Editar Chamado</h2>
-            <div>
-                <form onSubmit={handleSubmit}>
+        <section className='bodyChamadoCriar'>
+            <div className='formChamado' >
+                <h2>Editar Chamado</h2>
+                <form className='inputChamado' onSubmit={handleSubmit} >
+                    <h5>Título</h5>
                     <InputGroup
                         type='text'
                         label='titulo'
-                        placeholder='....'
+                        placeholder='Adicione titulo'
                         name='titulo'
                         handleChange={handleChange}
+                        style={{ width: '30rem' }}
                     />
+                    <h5>Descrição</h5>
                     <InputGroup
                         type='text'
                         label='Descrição'
@@ -71,32 +74,42 @@ function EditarChamado() {
                         name='descricao'
                         handleChange={handleChange}
                     />
-                    <SelectGroup
-                        name="tipo"
-                        label='Tipo'
-                        handleChange={handleChange}
-                        value={editchamados.tipo}
-                    >
-                        <option selected disabled>Tipo</option>
-                        <option value="Incident">Incident</option>
-                        <option value="Requisição">Requisição</option>
-                    </SelectGroup>
-                    <SelectGroup
-                        name="status"
-                        label='Status'
-                        handleChange={handleChange}
-                        value={editchamados.status}
-                    >
-                        <option selected disabled>Status</option>
-                        <option value="Novo">Novo</option>
-                        <option value="Andamento">Andamento</option>
-                        <option value="Solucionado">Solucionado</option>
-                        <option value="Cancelado">Cancelado</option>
-                    </SelectGroup>
-                    <button type='submit'>Concluir</button>
                 </form>
             </div>
-        </div>
+            <div className='options'>
+                <form className='inputChamado' onSubmit={handleSubmit}>
+                    <div className="OpTipo">
+                        <h5>Tipo</h5>
+                        <SelectGroup
+                            name="tipo"
+                            label='Tipo'
+                            handleChange={handleChange}
+                            value={editchamados.tipo}
+                        >
+                            <option selected disabled>Tipo</option>
+                            <option value="Incident">Incident</option>
+                            <option value="Requisição">Requisição</option>
+                        </SelectGroup>
+                    </div>
+                    <div className='OpStatus'>
+                        <h5>Status</h5>
+                        <SelectGroup
+                            name="status"
+                            label='Status'
+                            handleChange={handleChange}
+                            value={editchamados.status}
+                        >
+                            <option selected disabled>Status</option>
+                            <option value="Novo">Novo</option>
+                            <option value="Andamento">Andamento</option>
+                            <option value="Solucionado">Solucionado</option>
+                            <option value="Cancelado">Cancelado</option>
+                        </SelectGroup>
+                        <button className='registrar' type='submit' style={{ width: '10rem ' }}>Concluir</button>
+                    </div>
+                </form>
+            </div>
+        </section>
     )
 }
 
