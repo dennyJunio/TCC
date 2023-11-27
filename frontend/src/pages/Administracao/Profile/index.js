@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import api from '../../../utils/api'
 import { useNavigate } from 'react-router-dom'
-import SelectGroup from '../../../components/SelectGroup'
-import InputGroup from '../../../components/InputGroup'
+import SelectGroup2 from '../../../components/SelectGroup2'
+import InputGroup2 from '../../../components/InputGroup2'
+import "./styleEditarUsuario.css"
 
 function Profile() {
   const [user, setUser] = useState({})
@@ -66,54 +67,56 @@ function Profile() {
   }
 
   return (
-    <div>
-      <h2>Perfil</h2>
-      {/* <img
+    <section className='bodyPerfil'>
+      <div className='editarUsuario'>
+        <h2>Perfil</h2>
+        {/* <img
         style={{ height: '200px', width: '200px' }}
         className='rounded-circle m-3'
         src={'http://localhost:5000/image/users/' + user.image}
         alt='Foto de perfil'
       /> */}
-      <form onSubmit={handleSubmit}>
-        {/* <InputGroup
+        <form onSubmit={handleSubmit}>
+          {/* <InputGroup
           label='Imagem'
           type='file'
           name='image'
           handleChange={onFileChange}
         /> */}
-        <InputGroup
-          type='text'
-          label='Nome'
-          name='name'
-          placeholder='Digite seu nome'
-          handleChange={handleChange}
-        />
-        <InputGroup
-          type='password'
-          label='password'
-          name='password'
-          placeholder='Digite seu password'
-          handleChange={handleChange}
-        />
-        <InputGroup
-          type='password'
-          label='password'
-          name='confirmpassword'
-          placeholder='Digite seu password'
-          handleChange={handleChange}
-        />
-        <SelectGroup
-          name="nivel"
-          label="Tipo de Usuario"
-          handleChange={handleChange}
-        >
-          <option selected disabled>Nivel</option>
-          <option value="0">Admin</option>
-          <option value="1">Usuario</option>
-        </SelectGroup>
-        <button type='submit'>Atualizar</button>
-      </form>
-    </div>
+          <InputGroup2
+            type='text'
+            label='Nome'
+            name='name'
+            placeholder='Digite seu nome'
+            handleChange={handleChange}
+          />
+          <InputGroup2
+            type='password'
+            label='password'
+            name='password'
+            placeholder='Digite seu password'
+            handleChange={handleChange}
+          />
+          <InputGroup2
+            type='password'
+            label='password'
+            name='confirmpassword'
+            placeholder='Digite seu password'
+            handleChange={handleChange}
+          />
+          <SelectGroup2
+            name="nivel"
+            label="Tipo de Usuario"
+            handleChange={handleChange}
+          >
+            <option selected disabled>Nivel</option>
+            <option value="0">Admin</option>
+            <option value="1">Usuario</option>
+          </SelectGroup2>
+          <button type='submit'>Atualizar</button>
+        </form>
+      </div>
+    </section>
   )
 }
 

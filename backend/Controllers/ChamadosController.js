@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 //helpers
 const getToken = require('../helpers/get-token')
 const getUserById = require('../helpers/get-user-by-token')
-const getUserByToken = require('../Helpers/get-user-by-token')
+const getUserByToken = require('../helpers/get-user-by-token')
 
 module.exports = class ChamadosController {
     static async create(req, res) {
