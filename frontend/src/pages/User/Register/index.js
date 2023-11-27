@@ -27,50 +27,50 @@ function Register() {
 
   return (
     <section className='body1'>
-    <div className='bodyUsuarioCriar'>
-      <section className='formUsuario'>
-      <h2>Registrar Usuario</h2>
-      <div>
-        <form className='inputUsuario' onSubmit={handleSubmit}>
-          <h5>Digite seu nome</h5>
-          <InputGroup2
-            type='text'
-            label='Digite seu nome'
-            placeholder='Digite nome aqui'
-            name='name'
-            handleChange={handleChange}
-          />
-          <h5>Digite sua senha</h5>
-          <InputGroup2
-            type='password'
-            label='Digite sua senha'
-            placeholder='Digite sua senha'
-            name='password'
-            handleChange={handleChange}
-          />
-          <h5>Confirme sua senha</h5>
-          <InputGroup2
-            type='password'
-            label='Confirme sua senha'
-            placeholder='Confirme sua senha'
-            name='confirmpassword'
-            handleChange={handleChange}
-          />
-          <h5>Tipo de Usuario</h5>          
-          <SelectGroup2
-            name="nivel"
-            label="Tipo de Usuario"
-            handleChange={handleChange}
-          >
-            <option selected disabled>Nivel</option>
-            <option value="0">Admin</option>
-            <option value="1">Usuario</option>
-          </SelectGroup2>
-          <button className='registrarUsiario' type='submit'>Registrar</button>
-        </form>
+      <div className='bodyUsuarioCriar'>
+        <section className='formUsuario'>
+          <h2>Registrar Usuario</h2>
+          <div>
+            <form className='inputUsuario' onSubmit={handleSubmit}>
+              <h5>Digite o nome</h5>
+              <InputGroup2
+                type='text'
+                label='Digite seu nome'
+                placeholder='Digite nome aqui'
+                name='name'
+                handleChange={handleChange}
+              />
+              <h5>Digite a senha</h5>
+              <InputGroup2
+                type='password'
+                label='Digite sua senha'
+                placeholder='Digite sua senha'
+                name='password'
+                handleChange={handleChange}
+              />
+              <h5>Confirme a senha</h5>
+              <InputGroup2
+                type='password'
+                label='Confirme sua senha'
+                placeholder='Confirme sua senha'
+                name='confirmpassword'
+                handleChange={handleChange}
+              />
+              <h5>Tipo de Usuario</h5>
+              <SelectGroup2
+                name="nivel"
+                label="Tipo de Usuario"
+                handleChange={handleChange}
+              >
+                <option selected disabled>Nivel</option>
+                <option value="0">Admin</option>
+                <option value="1">Usuario</option>
+              </SelectGroup2>
+              <button className='registrarUsiario' type='submit'>Registrar</button>
+            </form>
+          </div>
+        </section>
       </div>
-      </section>
-    </div>
     </section>
   )
 }

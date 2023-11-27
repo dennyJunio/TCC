@@ -31,13 +31,16 @@ function useAuth() {
                     return response.data
                 })
             alert(data.message)
-            await authUser(data)
+            // Não chama automaticamente a autenticação após o registro
+            // await authUser(data)
+            return data; // Retorna os dados do registro
         } catch (error) {
             console.log('Erro ao cadastrar ', error)
             alert(error.response.data.message)
+            throw error; // Propaga o erro para quem chamou a função de registro
         }
     }
-
+    
     async function login(user) {
         try {
             const data = await api.post('/users/login', user)
