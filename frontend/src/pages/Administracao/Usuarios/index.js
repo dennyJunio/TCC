@@ -76,7 +76,7 @@ function ListaUser() {
               <td>{user.nivel}</td>
               <td>{moment(user.createdAt).format('DD/MM/YYYY - HH:mm')}</td>
               <td>
-                <Link to={`/users${user.id}`}><i class="fa-solid fa-pen fa-lg" style={{ color: '#496697', marginLeft: '0.5rem' }}></i></Link>
+                <Link to={`/users/${user.id}`}><i class="fa-solid fa-pen fa-lg" style={{ color: '#496697', marginLeft: '0.5rem' }}></i></Link>
               </td>
               <td>
                 <button className="invisible-button" onClick={() => { removeUser(user.id) }}>
